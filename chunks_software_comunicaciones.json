@@ -1,0 +1,992 @@
+[
+    {
+        "page_content": "Grupos Proyectos Software de Comunicaciones. Curso 2025-2026 \n \nGrupo 1: chat \nManuel Vázquez Lana \nFernando Martínez Ramírez \nAndrés Jiménez Bonilla \n \nGrupo 2: chat \nÓscar Dobladez Maestro \nPedro Gil Llach \nGonzalo Nájera Benítez \n \nGrupo 3: servidor ficheros \nSimone Leone \nNicola Chiarelli \nLoris Cerillo \nAntoine Mathieu \n \nGrupo 4: chat \nLuis Corrales López \nSergio González Collado \nMarina García Aguado \n \nGrupo 5: chat \nFrancisco Javier Guillén García \nIván Juanino Godoy \nSergio García López \nLuis García-Fresca García \n \nGrupo 6: chat \nGonzalo Valverde \nDaniel Rodríguez \nPepe Jurado \nGonzalo Jiménez \n \nGrupo 7: chat \nSergio Manuel de la Concepción Veneroso \nJaime Pérez Martín \nMarcos Galán \nAlfredo Rodríguez Roa \n \nGrupo 8: servidor ficheros \nArgimiro Mateo \nManuel Malia \nMustapha Achiban \nAlfonso Naranjo \n \nGrupo 9: chat \nDaniel Jiménez \nPedro Pacheco \n \nGrupo 10: chat \nSilvia Núñez \nDaniela Doblado \nMarta Velázquez \n \nGrupo 11: servidor ficheros \nAlejandro Robles",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GRUPOS_PROYECTO_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 0,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Mustapha Achiban \nAlfonso Naranjo \n \nGrupo 9: chat \nDaniel Jiménez \nPedro Pacheco \n \nGrupo 10: chat \nSilvia Núñez \nDaniela Doblado \nMarta Velázquez \n \nGrupo 11: servidor ficheros \nAlejandro Robles \nFernando Romero \nFrancisco Galán \n \nGrupo 12: chat \nCarlos Rangel \nAlejandro Jiménez \nMiguel García \n \nGrupo 13: servidor ficheros \nJosé Antonio Merino \nJavier Achúcarro",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GRUPOS_PROYECTO_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 1,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Plan de trabajo — Asistente docente IA integrado en Moodle \nPlan de trabajo · PoC Moodle + IA \nPlan de trabajo (8 semanas) \nIntegración de un asistente docente de IA en Moodle \nPlanificación realista de PoC desde cero, priorizando integración Moodle, frontend y pipeline \nRAG/embeddings, con backend mínimo centralizado. \n \nObjetivo final \nDisponer al final de la semana 8 de una PoC \nfuncional donde Moodle envía el contexto del \nusuario y del curso, el sistema recupera material \ndocente mediante RAG y el asistente responde \nde forma diferenciada para alumno y profesor. \nSupuesto de reparto \nAdolfo centraliza arquitectura, backend mínimo, \nIA/MLOps, despliegue y evaluación. Manuel, \nMarcos y Andrés se orientan sobre todo a \nintegración Moodle, frontend y pipeline de \nembeddings/contenidos. \n \n1. Reparto de roles propuesto \nAdolfo — Líder técnico de IA/MLOps y supervisor \n• Arquitectura global, definición de stack y decisiones técnicas no triviales.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 0,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "embeddings/contenidos. \n \n1. Reparto de roles propuesto \nAdolfo — Líder técnico de IA/MLOps y supervisor \n• Arquitectura global, definición de stack y decisiones técnicas no triviales. \n• Backend mínimo en FastAPI, orquestación del flujo y control de acceso por rol/curso. \n• Docker Compose, variables de entorno, despliegue local reproducible y revisión de PRs. \n• Diseño del RAG, prompts, evaluación y cierre de demo. \nManuel — Integración Moodle \n• Bloque, plugin o widget embebido en Moodle. \n• Captura y envío de user_id, course_id y rol. \n• Validación del flujo dentro del LMS. \nMarcos — Frontend / UX del chat \n• Interfaz del chat, estados de carga/error y experiencia de uso. \n• Conexión frontend-backend sobre contratos ya definidos. \n• Pulido visual y soporte a la demo. \nAndrés — Contenidos, chunking y embeddings \n• Extracción de materiales, limpieza de texto y metadatos. \n• Chunking, embeddings y carga en base vectorial. \n• Pruebas de recuperación y dataset de evaluación.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 1,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "• Extracción de materiales, limpieza de texto y metadatos. \n• Chunking, embeddings y carga en base vectorial. \n• Pruebas de recuperación y dataset de evaluación. \n \n \n \n \n \nPlan de trabajo — Asistente docente IA integrado en Moodle \nPlan de trabajo · PoC Moodle + IA \n2. Reglas de alcance para mantener el proyecto realista \n• Trabajar al inicio con 1 o 2 asignaturas piloto, no con toda la universidad. \n• Incluir únicamente dos perfiles de uso en la PoC: alumno y profesor. \n• Arrancar con PDFs, apuntes y un subconjunto controlado de materiales. \n• Evitar en esta fase sincronización compleja en tiempo real, analítica avanzada y despliegue cloud \nserio. \n• Priorizar un flujo extremo a extremo que funcione sobre un backend pequeño: Moodle → API → \nrecuperación RAG → LLM → respuesta. \n3. Planning semanal detallado \nA partir de este punto, se recomienda tratar cada semana como un mini sprint cerrado, con un \nentregable visible al final de la misma.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 2,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "3. Planning semanal detallado \nA partir de este punto, se recomienda tratar cada semana como un mini sprint cerrado, con un \nentregable visible al final de la misma. \n4. Criterios de éxito de la PoC al final de la semana 8 \n• El usuario accede al chat desde Moodle y el sistema conoce curso y rol. \n• La respuesta se apoya en materiales de la asignatura piloto recuperados vía RAG. \n• Alumno y profesor reciben comportamientos diferenciados. \n• La solución puede levantarse en local mediante un procedimiento documentado. \n• Existe una demo estable y defendible, aunque todavía no sea un sistema de producción. \n \n \nPlan de trabajo — Asistente docente IA integrado en Moodle \nPlan de trabajo · PoC Moodle + IA \nSemana 1 — Arranque técnico y congelación del alcance \nObjetivo de la semana: Alinear al equipo, dejar cerrado el reparto y disponer de una base ejecutable \nmínima en local. \nResponsabl\ne \nObjetivo semanal \nTareas clave \nEntregable \nAdolfo \nCerrar la arquitectura y \ndejar preparado el",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 3,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "mínima en local. \nResponsabl\ne \nObjetivo semanal \nTareas clave \nEntregable \nAdolfo \nCerrar la arquitectura y \ndejar preparado el \nesqueleto técnico. \n \n• Definir stack final, estructura del \nrepositorio y normas de trabajo. \n• Montar FastAPI mínima, Docker \nCompose base y variables de entorno. \n• Redactar backlog inicial y criterios de \naceptación de la PoC. \nRepositorio listo, \nentorno local \nreproducible y \nbacklog \npriorizado. \nManuel \nValidar la vía más \nsimple para incrustar el \nchat en Moodle. \n \n• Analizar bloque, plugin o widget \nembebido. \n• Hacer una prueba visual simple dentro \ndel LMS. \nPrueba de \nintegración visible \nen Moodle. \nMarcos \nDiseñar la primera \nversión de la interfaz \ndel chat. \n \n• Crear una maqueta simple con entrada, \nsalida y mensajes de estado. \n• Dejar preparada la estructura visual para \nconectar con API. \nMaqueta \nnavegable del \nchat. \nAndrés \nPreparar la base del \npipeline de contenidos. \n \n• Reunir materiales de una asignatura \npiloto.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 4,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "• Dejar preparada la estructura visual para \nconectar con API. \nMaqueta \nnavegable del \nchat. \nAndrés \nPreparar la base del \npipeline de contenidos. \n \n• Reunir materiales de una asignatura \npiloto. \n• Probar extracción de texto con varios \nPDFs y definir esquema de metadatos. \nMuestra de \ndocumentos \nprocesados y \nmetadatos \nacordados. \n \n \nPlan de trabajo — Asistente docente IA integrado en Moodle \nPlan de trabajo · PoC Moodle + IA \nSemana 2 — Primer flujo extremo a extremo sin IA real \nObjetivo de la semana: Conseguir que Moodle, interfaz y backend se hablen entre sí con datos reales \no simulados. \nResponsabl\ne \nObjetivo semanal \nTareas clave \nEntregable \nAdolfo \nDejar el endpoint /chat \noperativo con \nrespuesta simulada. \n \n• Definir el contrato JSON del chat. \n• Implementar /health y /chat con \nrespuesta dummy. \n• Configurar logging técnico básico. \nFlujo funcional \nMoodle/frontend \n→ backend. \nManuel \nEnviar al backend el \ncontexto del usuario \ndesde Moodle.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 5,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "respuesta dummy. \n• Configurar logging técnico básico. \nFlujo funcional \nMoodle/frontend \n→ backend. \nManuel \nEnviar al backend el \ncontexto del usuario \ndesde Moodle. \n \n• Capturar user_id, course_id y rol. \n• Validar que el LMS pasa esos datos al \npunto de entrada del chat. \nPayload real \nllegando al \nbackend. \nMarcos \nConectar la interfaz \ncon el endpoint \ndummy. \n \n• Consumir /chat desde el frontend. \n• Gestionar loading, errores y respuesta \nsimple. \nChat conectado a \nuna respuesta \nsimulada. \nAndrés \nDefinir chunking y \nmetadatos con criterio. \n \n• Acordar campos mínimos: course_id, \nsource, chunk_id, rol si procede. \n• Hacer primeras particiones de texto \nmanuales o semi-automáticas. \nEsquema estable \nde chunking y \nmetadatos. \n \n \nPlan de trabajo — Asistente docente IA integrado en Moodle \nPlan de trabajo · PoC Moodle + IA \nSemana 3 — Pipeline de embeddings y base vectorial \nObjetivo de la semana: Poblar la base vectorial con una asignatura piloto y dejar el flujo de ingesta",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 6,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Plan de trabajo · PoC Moodle + IA \nSemana 3 — Pipeline de embeddings y base vectorial \nObjetivo de la semana: Poblar la base vectorial con una asignatura piloto y dejar el flujo de ingesta \nrazonablemente limpio. \nResponsabl\ne \nObjetivo semanal \nTareas clave \nEntregable \nAdolfo \nFijar la estrategia \ninicial de retrieval. \n \n• Elegir vector DB, modelo de embeddings \ny parámetros base. \n• Definir tamaño de chunk, solape y top-k \ninicial. \nCriterios técnicos \nde retrieval \ncerrados. \nManuel \nMejorar la integración \nMoodle con contexto \nvisible. \n \n• Mostrar curso/rol activo en el chat. \n• Resolver fricciones de navegación dentro \ndel LMS. \nIntegración más \nusable y \nentendible. \nMarcos \nPulir la UX del chat. \n \n• Mejorar mensajes, formato de respuesta \ny comportamiento de errores. \n• Preparar componentes para mostrar \nreferencias o avisos si luego se añaden. \nInterfaz más clara \ny estable. \nAndrés \nImplementar la ingesta \nreal. \n \n• Extracción de materiales, limpieza de",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 7,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "• Preparar componentes para mostrar \nreferencias o avisos si luego se añaden. \nInterfaz más clara \ny estable. \nAndrés \nImplementar la ingesta \nreal. \n \n• Extracción de materiales, limpieza de \ntexto, chunking y embeddings. \n• Carga en base vectorial con metadatos \npor curso. \nAsignatura piloto \nindexada en la \nvector DB. \n \n \nPlan de trabajo — Asistente docente IA integrado en Moodle \nPlan de trabajo · PoC Moodle + IA \nSemana 4 — Primer RAG extremo a extremo \nObjetivo de la semana: Conseguir respuestas basadas en materiales del curso, no respuestas \ngenéricas. \nResponsabl\ne \nObjetivo semanal \nTareas clave \nEntregable \nAdolfo \nIntegrar recuperación + \nprompt + llamada al \nmodelo. \n \n• Conectar /chat con la base vectorial. \n• Construir prompt con contexto \nrecuperado. \n• Filtrar por course_id antes de llamar al \nLLM. \nChat RAG \nfuncional sobre \nuna asignatura. \nManuel \nProbar el flujo dentro \nde Moodle con \nescenarios reales. \n \n• Verificar que el contexto del curso es \ncorrecto.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 8,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "LLM. \nChat RAG \nfuncional sobre \nuna asignatura. \nManuel \nProbar el flujo dentro \nde Moodle con \nescenarios reales. \n \n• Verificar que el contexto del curso es \ncorrecto. \n• Identificar fallos de integración o \nsesiones. \nLista de \nincidencias de \nintegración y \ncorrecciones. \nMarcos \nMejorar la \nrepresentación de \nrespuestas y errores. \n \n• Mostrar tiempos de espera de forma \namigable. \n• Cuidar scroll, envío y lectura continua. \nFrontend \npreparado para \ndemo interna. \nAndrés \nRevisar la calidad de lo \nrecuperado. \n \n• Detectar chunks demasiado largos, \nvacíos o duplicados. \n• Corregir parsing y metadatos cuando \nhaga falta. \nBase vectorial \nmás limpia y \nretrieval más útil. \n \n \nPlan de trabajo — Asistente docente IA integrado en Moodle \nPlan de trabajo · PoC Moodle + IA \nSemana 5 — Personalización por rol y control de acceso \nObjetivo de la semana: Separar claramente el comportamiento de alumno y profesor y evitar fugas de \ncontexto. \nResponsabl\ne \nObjetivo semanal \nTareas clave",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 9,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Objetivo de la semana: Separar claramente el comportamiento de alumno y profesor y evitar fugas de \ncontexto. \nResponsabl\ne \nObjetivo semanal \nTareas clave \nEntregable \nAdolfo \nDiseñar el \ncomportamiento \ndiferencial y aplicar \nRBAC mínimo. \n \n• Definir prompts diferenciados para \nalumno y profesor. \n• Limitar acceso según rol y curso. \n• Revisar cómo se gestionan casos fuera \nde contexto. \nReglas \nfuncionales de \nacceso y prompts \ndiferenciados. \nManuel \nVerificar qué rol aporta \nMoodle y cómo \nexponerlo bien. \n \n• Asegurar que el rol llega correctamente \nal backend. \n• Probar combinaciones alumno/profesor \nen cursos distintos. \nValidación del \nflujo de roles \ndesde Moodle. \nMarcos \nAjustar la interfaz a la \npersonalización. \n \n• Mostrar avisos o etiquetas del modo \nactivo. \n• Refinar el tono visual para que el \nasistente se perciba como herramienta \ndocente. \nUX coherente con \nla diferenciación \npor rol. \nAndrés \nRefinar metadatos y \npruebas por perfil.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 10,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "activo. \n• Refinar el tono visual para que el \nasistente se perciba como herramienta \ndocente. \nUX coherente con \nla diferenciación \npor rol. \nAndrés \nRefinar metadatos y \npruebas por perfil. \n \n• Etiquetar mejor documentos o fuentes \npor curso y tipo. \n• Preparar preguntas distintas para \nalumno y profesor. \nConjunto de \npruebas por rol. \n \n \nPlan de trabajo — Asistente docente IA integrado en Moodle \nPlan de trabajo · PoC Moodle + IA \nSemana 6 — Evaluación técnica y estabilización \nObjetivo de la semana: Dejar de probar solo a ojo y medir si la PoC responde con calidad suficiente. \nResponsabl\ne \nObjetivo semanal \nTareas clave \nEntregable \nAdolfo \nLiderar la evaluación y \najustar parámetros. \n \n• Crear batería de preguntas reales y \ncriterios de éxito. \n• Ajustar top-k, prompts y filtros según \nresultados. \n• Revisar tiempos de respuesta y fallos \nfrecuentes. \nMatriz de \nevaluación con \nconclusiones y \najustes. \nManuel \nCerrar bugs de \nintegración Moodle.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 11,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "resultados. \n• Revisar tiempos de respuesta y fallos \nfrecuentes. \nMatriz de \nevaluación con \nconclusiones y \najustes. \nManuel \nCerrar bugs de \nintegración Moodle. \n \n• Resolver incidencias abiertas de sesión, \ncarga y navegación. \n• Comprobar estabilidad tras cambios del \nbackend. \nIntegración \nestable para \npruebas \ncontinuadas. \nMarcos \nPulir bugs de \nexperiencia de usuario. \n \n• Corregir errores de envío, renderizado y \nestados. \n• Homogeneizar mensajes y \ncomportamiento del chat. \nFrontend listo \npara uso \nprolongado en \ndemo. \nAndrés \nFormalizar el dataset \nde evaluación. \n \n• Incluir preguntas fáciles, ambiguas y \nfuera de temario. \n• Registrar ejemplos donde la \nrecuperación falle. \nDataset técnico \nde evaluación y \nrecuperación. \n \n \nPlan de trabajo — Asistente docente IA integrado en Moodle \nPlan de trabajo · PoC Moodle + IA \nSemana 7 — Cierre técnico de la PoC \nObjetivo de la semana: Congelar la solución, documentarla y evitar cambios de última hora que \nrompan la demo.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 12,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Plan de trabajo · PoC Moodle + IA \nSemana 7 — Cierre técnico de la PoC \nObjetivo de la semana: Congelar la solución, documentarla y evitar cambios de última hora que \nrompan la demo. \nResponsabl\ne \nObjetivo semanal \nTareas clave \nEntregable \nAdolfo \nCongelar arquitectura \ny documentar el \narranque. \n \n• Cerrar la API mínima y revisar Docker \nCompose. \n• Documentar instalación, variables de \nentorno y flujo de ejecución. \n• Pasar revisión global del repositorio. \nVersión candidata \na demo con \ndocumentación de \ndespliegue. \nManuel \nDocumentar la parte \nde Moodle. \n \n• Explicar cómo se integra el chat en el \nLMS. \n• Dejar instrucciones claras para replicar el \nmontaje. \nGuía breve de \nintegración \nMoodle. \nMarcos \nPulido final del chat. \n \n• Revisar textos, estados visuales y \ncoherencia general. \n• Corregir detalles que afecten a la \npercepción de calidad. \nInterfaz final para \npresentación. \nAndrés \nCerrar el pipeline de \ningesta. \n \n• Limpiar scripts y documentar pasos.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 13,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "• Corregir detalles que afecten a la \npercepción de calidad. \nInterfaz final para \npresentación. \nAndrés \nCerrar el pipeline de \ningesta. \n \n• Limpiar scripts y documentar pasos. \n• Asegurar que una nueva asignatura \npiloto podría cargarse sin rehacer todo. \nScript de ingesta \nreproducible y \ndocumentado. \n \n \nPlan de trabajo — Asistente docente IA integrado en Moodle \nPlan de trabajo · PoC Moodle + IA \nSemana 8 — Ensayo, demo y entrega \nObjetivo de la semana: Presentar una PoC defendible, con narrativa clara y límites bien explicados. \nResponsabl\ne \nObjetivo semanal \nTareas clave \nEntregable \nAdolfo \nLiderar la demo y el \nmensaje técnico. \n \n• Preparar guion: problema, arquitectura, \nflujo, valor diferencial y límites. \n• Ensayar casos de uso de alumno y \nprofesor. \n• Dejar resueltas incidencias críticas de \núltima hora. \nDemo final y \ndiscurso técnico \ncoherente. \nManuel \nSoporte a la demo \ndesde Moodle. \n \n• Asegurar que el acceso al chat funciona \ndurante la presentación.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 14,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "última hora. \nDemo final y \ndiscurso técnico \ncoherente. \nManuel \nSoporte a la demo \ndesde Moodle. \n \n• Asegurar que el acceso al chat funciona \ndurante la presentación. \n• Cubrir navegación y contexto de usuario. \nParte LMS estable \ndurante la demo. \nMarcos \nSoporte a la demo \ndesde la interfaz. \n \n• Controlar la experiencia del chat y \nposibles errores visibles. \n• Apoyar la presentación de usabilidad. \nFlujo visual limpio \ny sin sorpresas. \nAndrés \nSoporte a la demo \ndesde el RAG. \n \n• Explicar de forma sencilla extracción, \nchunking y embeddings. \n• Preparar ejemplos de recuperación \ncorrecta. \nApoyo técnico a la \nexplicación del \nvalor del RAG. \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nPlan de trabajo — Asistente docente IA integrado en Moodle \nPlan de trabajo · PoC Moodle + IA \n \n5. Anotaciones de uso del repositorio en GitHub \n• Mantener main como rama estable y presentable, sin cambios que rompan la demo. \n• Usar develop como rama de integración antes de pasar cambios a main.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 15,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "• Mantener main como rama estable y presentable, sin cambios que rompan la demo. \n• Usar develop como rama de integración antes de pasar cambios a main. \n• Crear ramas por tarea y no por persona; por ejemplo: feat/moodle-context, feat/chat-ui, feat/rag-\ningestion o fix/pdf-parser. \n• Abrir siempre Pull Request hacia develop y evitar pushes directos a main y develop. \n• Hacer commits pequeños y frecuentes, con mensajes claros y orientados a la tarea. \n• Esquema en árbol del flujo de GitHub: \n \nmain \n└── rama estable del proyecto \n    └── solo contiene versiones revisadas y preparadas para demo \n \ndevelop \n└── rama de integración del equipo \n    ├── feat/moodle-context-auth \n    │   └── integración de usuario, curso y rol desde Moodle \n    ├── feat/chat-ui \n    │   └── interfaz del chat y experiencia de usuario \n    ├── feat/rag-ingestion \n    │   └── extracción de documentos, chunking y embeddings \n    ├── feat/vector-search \n    │   └── búsqueda semántica en base vectorial",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 16,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "├── feat/rag-ingestion \n    │   └── extracción de documentos, chunking y embeddings \n    ├── feat/vector-search \n    │   └── búsqueda semántica en base vectorial \n    ├── feat/role-based-prompts \n    │   └── personalización por alumno/profesor \n    ├── fix/course-filter \n    │   └── corrección de filtrado por asignatura \n    └── docs/setup-local \n        └── documentación de instalación y despliegue local \n \n \n \n \n \nPlan de trabajo — Asistente docente IA integrado en Moodle \nPlan de trabajo · PoC Moodle + IA \n \n• Esquema simple del flujo de trabajo: \n \n1. Crear una issue \n   ↓ \n2. Crear rama desde develop \n   ↓ \n3. Desarrollar la tarea \n   ↓ \n4. Hacer commits pequeños y claros \n   ↓ \n5. Abrir Pull Request hacia develop \n   ↓ \n6. Revisar y probar \n   ↓ \n7. Fusionar en develop \n   ↓ \n8. Cuando develop esté estable, fusionar en main \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nPlan de trabajo — Asistente docente IA integrado en Moodle \nPlan de trabajo · PoC Moodle + IA",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 17,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "↓ \n8. Cuando develop esté estable, fusionar en main \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nPlan de trabajo — Asistente docente IA integrado en Moodle \nPlan de trabajo · PoC Moodle + IA \n \n• Reparto de equipo:  \n \nmain \n└── estable / demo final \n \ndevelop \n├── ramas de Adolfo \n│   ├── feat/backend-chat-orchestrator \n│   ├── feat/rbac-filtering \n│   └── chore/docker-compose \n├── ramas de Manuel \n│   ├── feat/moodle-plugin-context \n│   └── feat/moodle-chat-embed \n├── ramas de Marcos \n│   ├── feat/chat-ui \n│   └── feat/chat-loading-errors \n└── ramas de Andrés \n    ├── feat/rag-ingestion \n    ├── feat/embeddings-pipeline \n    └── feat/vector-metadata",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GUIA_DOCENTE_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 18,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Grupos Proyectos Software de Comunicaciones. Curso 2025-2026 \n \nGrupo 1: chat \nManuel Vázquez Lana \nFernando Martínez Ramírez \nAndrés Jiménez Bonilla \n \nGrupo 2: chat \nÓscar Dobladez Maestro \nPedro Gil Llach \nGonzalo Nájera Benítez \n \nGrupo 3: servidor ficheros \nSimone Leone \nNicola Chiarelli \nLoris Cerillo \nAntoine Mathieu \n \nGrupo 4: chat \nLuis Corrales López \nSergio González Collado \nMarina García Aguado \n \nGrupo 5: chat \nFrancisco Javier Guillén García \nIván Juanino Godoy \nSergio García López \nLuis García-Fresca García \n \nGrupo 6: chat \nGonzalo Valverde \nDaniel Rodríguez \nPepe Jurado \nGonzalo Jiménez \n \nGrupo 7: chat \nSergio Manuel de la Concepción Veneroso \nJaime Pérez Martín \nMarcos Galán \nAlfredo Rodríguez Roa \n \nGrupo 8: servidor ficheros \nArgimiro Mateo \nManuel Malia \nMustapha Achiban \nAlfonso Naranjo \n \nGrupo 9: chat \nDaniel Jiménez \nPedro Pacheco \n \nGrupo 10: chat \nSilvia Núñez \nDaniela Doblado \nMarta Velázquez \n \nGrupo 11: servidor ficheros \nAlejandro Robles",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GRUPOS_PROYECTO_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 0,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Mustapha Achiban \nAlfonso Naranjo \n \nGrupo 9: chat \nDaniel Jiménez \nPedro Pacheco \n \nGrupo 10: chat \nSilvia Núñez \nDaniela Doblado \nMarta Velázquez \n \nGrupo 11: servidor ficheros \nAlejandro Robles \nFernando Romero \nFrancisco Galán \n \nGrupo 12: chat \nCarlos Rangel \nAlejandro Jiménez \nMiguel García \n \nGrupo 13: servidor ficheros \nJosé Antonio Merino \nJavier Achúcarro",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "GRUPOS_PROYECTO_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 1,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "1. Sistemas distribuidos\nGrado en Ingeniería Informática y Tecnologías Virtuales\nGrado en Ingeniería del Software\nSoftware de Comunicaciones\nCurso 2025-2026\n1. Caracterización de los sistemas distribuidos\n2. Retos de los sistemas distribuidos\n3. Arquitectura\n4. Coordinación\n5. Estimación de retrasos en la red\n2\nContenido\n1. Caracterización de los sistemas distribuidos\n2. Retos de los sistemas distribuidos\n3. Arquitectura\n4. Coordinación\n5. Estimación de retrasos en la red\n3\nContenido\nCaracterización de los sistemas distribuidos\n▪Un sistema distribuido es un conjunto de dispositivos \nindependientes que ofrece a sus usuarios la imagen de \nun sistema único y coherente.\n▪Las aplicaciones se comunican mediante paso de \nmensajes para poder sincronizarse y cooperar.\n▪Internet es el sistema distribuido de ingeniería más \ngrande creado por la humanidad. Es una red de \ncomputadoras que interconecta cientos de millones de \ndispositivos a través del mundo. Es una infraestructura",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 0,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "grande creado por la humanidad. Es una red de \ncomputadoras que interconecta cientos de millones de \ndispositivos a través del mundo. Es una infraestructura \nque proporciona servicios a aplicaciones (programas en \nlas computadoras)\n▪Ejemplos: servicios de búsqueda, sistemas multimedia, \njuegos online, comercio electrónico, sistema de \narchivos en red, redes de telefonía móvil, redes \ncorporativas, clúster de computadoras para \nsupercomputación, internet en general…\n4\nCaracterización de los sistemas distribuidos\n▪Los sistemas finales o hosts ejecutan aplicaciones que \npueden acceder a recursos de otros dispositivos \n(intercambio de datos).\n▪Los sistemas finales están conectados entre sí mediante \nenlaces de comunicaciones y conmutadores de paquetes \n(routers y switches).\n▪Los sistemas finales acceden a internet a través de ISPs\n(Internet Service Providers).\n5\nCaracterización de los sistemas distribuidos\n▪Cada elemento de internet (hosts, routers…) ejecutan",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 1,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "▪Los sistemas finales acceden a internet a través de ISPs\n(Internet Service Providers).\n5\nCaracterización de los sistemas distribuidos\n▪Cada elemento de internet (hosts, routers…) ejecutan \nprotocolos que controlan el envío y recepción de \ninformación dentro de un sistema distribuido.\n▪Dada la importancia de los protocolos, es importante que \ntodo el mundo esté de acuerdo en lo que cada protocolo \nhace de forma que todo el mundo pueda crear sistemas y \nproductos que puedan interactuar. Aquí aparecen los \nestándares. Los estándares de internet son desarrollados \npor el IETF (Internet Engineering Task Force). www.ietf.org\n▪Los documentos del IETF se llaman RFCs (Requests for\nComments).\n6\nCaracterización de los sistemas distribuidos\nLos sistemas distribuidos se caracterizan por lo siguiente:\n▪Concurrencia: la ejecución de programas concurrentes es la norma. Cada uno puedo hacer trabajos \nindependientes en su ordenador mientras se comparten recursos como base de datos, archivos o",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 2,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "▪Concurrencia: la ejecución de programas concurrentes es la norma. Cada uno puedo hacer trabajos \nindependientes en su ordenador mientras se comparten recursos como base de datos, archivos o \npáginas web.\n▪No hay un reloj global: cuando los programas necesitan cooperar, coordinan sus acciones por \nmedio de mensajes (afectados por retrasos, pueden sufrir fallos y son objeto a ataques de \nseguridad). La coordinación cercana a veces depende de una idea del momento en el cual la acción \ndel programa va a ocurrir, pero existen límites en cuanto a la precisión en la que los computadores \npueden sincronizar sus relojes.\n▪Independencia a fallos: Cualquier sistema computacional puede fallar. Si un elemento de un \nsistema distribuido falla, el sistema completo debe seguir en funcionamiento.\n1. Caracterización de los sistemas distribuidos\n2. Retos de los sistemas distribuidos\n3. Arquitectura\n4. Coordinación\n5. Estimación de retrasos en la red\n8\nContenido\nRetos de los sistemas distribuidos",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 3,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "2. Retos de los sistemas distribuidos\n3. Arquitectura\n4. Coordinación\n5. Estimación de retrasos en la red\n8\nContenido\nRetos de los sistemas distribuidos\n1. Heterogeneidad\n2. Apertura\n3. Seguridad\n4. Escalabilidad\n5. Manejo de fallos\n6. Concurrencia\n7. Transparencia\n8. Calidad del servicio\n9\nRetos de los sistemas distribuidos\n1. Heterogeneidad\nAcceso a servicios y ejecución de aplicaciones sobre una colección heterogénea de computadores y \nredes (diferencias en hardware, enlaces de comunicación, sistemas operativos, lenguajes de \nprogramación, implementación por diferentes desarrolladores…).\n10\nMiddleware\nCapa de software que proporciona \nabstracción y enmascara la \nheterogeneidad de los dispositivos \nsubyacentes.\nProporciona un modelo \ncomputacional uniforme para \nprogramadores de servidores y \ndesarrolladores de aplicaciones \ndistribuidas.\nRetos de los sistemas distribuidos\n2. Apertura\n▪Característica que determina si el sistema puede ser extendido y reimplementado en diversas",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 4,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "desarrolladores de aplicaciones \ndistribuidas.\nRetos de los sistemas distribuidos\n2. Apertura\n▪Característica que determina si el sistema puede ser extendido y reimplementado en diversas \nformas.\n▪Se consigue con la estandarización de interfaces, aunque es el punto inicial. El reto para los \ndiseñadores es afrontar la complejidad de los sistemas distribuidos que consisten en multitud de \ncomponentes diseñados por diferentes agentes.\n▪Un sistema abierto es aquel que se ajusta a estándares que especifican y describen la sintaxis y la \nsemántica de las operaciones que constituyen el servicio ofrecido por el sistema.\n▪Las RFCs no son el único medio para la estandarización. Por ejemplo, el World Wide Web \nConsortium (W3C) desarrolla y publica estándares relacionados con la web. www.w3.org.\n11\nRetos de los sistemas distribuidos\n3. Seguridad\nLa información en sistemas distribuidos tiene una gran importancia para los usuarios. 3 \ncomponentes:\n▪Confidencialidad\n▪Integridad\n▪Disponibilidad\n12",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 5,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Retos de los sistemas distribuidos\n3. Seguridad\nLa información en sistemas distribuidos tiene una gran importancia para los usuarios. 3 \ncomponentes:\n▪Confidencialidad\n▪Integridad\n▪Disponibilidad\n12\nRetos de los sistemas distribuidos\n4. Escalabilidad\nLos sistemas distribuidos operan de forma eficiente y efectiva en diferentes escalas.\nUn sistema es escalable si permanece efectivo cuando hay un incremento significante en el número \nde recursos y número de usuarios.\nEl diseño de sistemas escalables presenta los siguientes retos:\n▪Control del coste de los recursos físicos.\n▪Control de la perdida de rendimiento.\n▪Prevenir que los recursos de software se agoten.\n▪Evitar cuellos de botella. En general los algoritmos deben ser descentralizados.\n13\nRetos de los sistemas distribuidos\n5. Manejo de fallos\nLas siguientes técnicas pueden ser usadas:\n▪Detección de fallos: por ejemplo, uso de Checksums, códigos de Hamming… para detectar mensajes \ncorruptos.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 6,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "5. Manejo de fallos\nLas siguientes técnicas pueden ser usadas:\n▪Detección de fallos: por ejemplo, uso de Checksums, códigos de Hamming… para detectar mensajes \ncorruptos.\n▪Enmascarar fallos: mensajes pueden ser retransmitidos cuando fallan al llegar. Archivos pueden ser \nescritos en diferentes discos, de forma que si uno es corrupto el otro puede aún ser correcto.\n▪Tolerar fallos: por ejemplo, informar de que un cliente no se ha conectado a un servidor, pudiendo \nintentar la conexión de nuevo.\n▪Recuperación después de fallos: por ejemplo, si un servidor falla y no ha finalizado una tarea.\n▪Redundancia: replicación de componentes.\n14\nRetos de los sistemas distribuidos\n6. Concurrencia\nUno de los problemas a resolver cuando se implantan programas concurrentes es garantizar que las \nsecciones críticas existentes (recursos compartidos, por ejemplo, una base de datos) se ejecuten en \nexclusión mutua, es decir que únicamente las ejecute un proceso en cada momento.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 7,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "secciones críticas existentes (recursos compartidos, por ejemplo, una base de datos) se ejecuten en \nexclusión mutua, es decir que únicamente las ejecute un proceso en cada momento.\nSe debe asegurar su correcto comportamiento.\nTécnicas: semáforos\n15\nRetos de los sistemas distribuidos\n7. Transparencia\nUn sistema distribuido es transparente si es capaz de ocultar que físicamente está compuesto por \nmúltiples elementos independientes. El sistema es percibido como un todo en lugar de una colección de \nelementos independientes.\n16\nTransparencia en\nDescripción\nAcceso\nPermite a recursos locales y remotos ser accesibles usando operaciones idénticas\nFallos\nOculta el fallo y la recuperación de los recursos permitiendo a las aplicaciones realizar \nsus tareas\nMigración\nOculta el hecho de que un recurso pueda migrar de un lado a otro sin afectar la \noperación de usuarios y programas\nConcurrencia\nVarios procesos operando usando recursos compartidos sin interferencia entre ellos\nReplicación",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 8,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "operación de usuarios y programas\nConcurrencia\nVarios procesos operando usando recursos compartidos sin interferencia entre ellos\nReplicación\nMúltiples recursos sin necesitad que los usuarios o programas lo conozcan\nRendimiento\nPermite al sistema ser reconfigurado para mejorar rendimiento en función de la carga\nEscalado\nPermite al sistema y las aplicaciones expandirse en escala sin cambiar la estructura del \nsistema ni los algoritmos de aplicación\nUbicación\nPermite a los recursos ser accesibles sin conocimiento de su localización física o red\nRetos de los sistemas distribuidos\n8. Calidad del servicio\nPropiedades no funcionales que afectan el servicio:\nFiabilidad\nRendimiento\nSeguridad\n17\n1. Caracterización de los sistemas distribuidos\n2. Retos de los sistemas distribuidos\n3. Arquitectura\n4. Coordinación\n5. Estimación de retrasos en la red\n18\nContenido\nArquitectura\nLos sistemas distribuidos son complejos con diversos elementos. En redes de computadores \nencontramos:\n▪Hosts\n▪Hubs",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 9,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "4. Coordinación\n5. Estimación de retrasos en la red\n18\nContenido\nArquitectura\nLos sistemas distribuidos son complejos con diversos elementos. En redes de computadores \nencontramos:\n▪Hosts\n▪Hubs\n▪Switches\n▪Routers\n▪Enlaces físicos de diferentes naturalezas\n▪Aplicaciones\n▪Protocolos\n▪Hardware, software\n19\nArquitectura\n20\n¿Hay alguna forma de organizar la estructura de una red?\nRFC 3439: Some Internet Architectural Guidelines and Philosophy\nhttps://www.rfc-editor.org/rfc/rfc3439\nRFC 1958: Arquitectural Principles of the Internet\nhttps://www.rfc-editor.org/rfc/rfc1958\nArquitectura\n21\n¿Hay alguna forma de organizar la estructura de una red?\nRFC 3439: Some Internet Architectural Guidelines and Philosophy\nhttps://www.rfc-editor.org/rfc/rfc3439\nRFC 1958: Arquitectural Principles of the Internet\nhttps://www.rfc-editor.org/rfc/rfc1958\nModelo en capas presenta varias ventajas conceptuales y estructurales\nArquitectura: modelo de capas\n22\nEnlace\nAplicación\nRed\nTransporte\nFísica",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 10,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "https://www.rfc-editor.org/rfc/rfc1958\nModelo en capas presenta varias ventajas conceptuales y estructurales\nArquitectura: modelo de capas\n22\nEnlace\nAplicación\nRed\nTransporte\nFísica\n▪Aplicación: aplicaciones de red\n• HTTP, IMAP, SMTP, DNS, FTP, NTP, DHCP\n▪Transporte: transferencia de datos entre procesos\n• TCP (entrega ordenada de mensajes), UDP\n▪Red: enrutado de datagramas desde la fuente al \ndestino\n• IP, ARP, ICMP, IGMP\n▪Enlace: transferencia de datos entre vecinos\n• Ethernet, 802.11 (WiFi), PPP\n▪Física: bits en el medio físico\nArquitectura: modelo de capas\n23\nEnlace\nAplicación\nRed\nTransporte\nFísica\n▪Para gestionar las comunicaciones es necesario definir una \npila de protocolos. Cada nivel utiliza un protocolo \ndeterminado para solucionar algún problema que conlleva \nla comunicación.\n▪¿Por qué un modelo en capas?\no Enfoque para diseñar y discutir sobre sistemas \ncomplejos.\no La modularización facilita el mantenimiento y la \nactualización del sistema. Cambios en la",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 11,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "▪¿Por qué un modelo en capas?\no Enfoque para diseñar y discutir sobre sistemas \ncomplejos.\no La modularización facilita el mantenimiento y la \nactualización del sistema. Cambios en la \nimplementación de un servicio de capa es transparente \nal resto del sistema.\nEnlace\nAplicación\nRed\nTransporte\nFísica\nEnlace\nAplicación\nRed\nTransporte\nFísica\nEl protocolo de la capa de transporte \nencapsula el mensaje de la capa de \naplicación, M, con la cabecera Ht para \ncrear un segmento de la capa de \ntransporte. Ht es usado por la capa de \ntransporte para implementar su servicio\nEl protocolo de la capa de transporte transfiere M desde \nun proceso a otro usando servicios de la capa de red\nHt\nM\nAplicación intercambia mensajes para implementar servicios \nde aplicación usando servicios de la capa de transporte\nM\nArquitectura: modelo de capas\nEnlace\nAplicación\nRed\nTransporte\nFísica\nEnlace\nAplicación\nRed\nTransporte\nFísica\nEl protocolo de la capa de red encapsula el \nsegmento de la capa de transporte [Ht |",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 12,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "M\nArquitectura: modelo de capas\nEnlace\nAplicación\nRed\nTransporte\nFísica\nEnlace\nAplicación\nRed\nTransporte\nFísica\nEl protocolo de la capa de red encapsula el \nsegmento de la capa de transporte [Ht | \nM] con la cabecera Hn de la capa de red \npara crear un datagrama de la capa de red. \nHn es usado por el protocolo de la capa de \nred para implementar sus servicios\nEl protocolo de la capa de transporte transfiere M desde \nun proceso a otro usando servicios de la capa de red\nHt\nM\nM\nArquitectura: modelo de capas\nEl protocolo de la capa de red transfiere el segmento de la \ncapa de transporte desde un host a otro usando servicios \nde la capa de enlace\nM\nHt\nHn\nEnlace\nAplicación\nRed\nTransporte\nFísica\nEnlace\nAplicación\nRed\nTransporte\nFísica\nEl protocolo de la capa de enlace encapsula el datagrama \nde red [Hn| [Ht |M] con la cabecera de la capa de enlace Hl\npara crear una trama de la capa de enlace\nHt\nM\nM\nArquitectura: modelo de capas\nM\nHt\nHn\nM\nHt\nHn\nHl",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 13,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "de red [Hn| [Ht |M] con la cabecera de la capa de enlace Hl\npara crear una trama de la capa de enlace\nHt\nM\nM\nArquitectura: modelo de capas\nM\nHt\nHn\nM\nHt\nHn\nHl\nEl protocolo de la capa de red transfiere el segmento de la capa \nde transporte desde un host a otro usando servicios de la capa \nde enlace\nEl protocolo de la capa de enlace transfiere el datagrama [Hn| \n[Ht |M] desde un host hasta un host vecino, usando servicios de \nla capa física \nEnlace\nAplicación\nRed\nTransporte\nFísica\nEnlace\nAplicación\nRed\nTransporte\nFísica\nArquitectura: modelo de capas\nM\nHt\nHn\nHl\nM\nHt\nHn\nHt\nM\nM\nOrigen\nDestino\nM\nM\nHt\nHn\nM\nHt\nHn\nHl\nM\nHt\nArquitectura: modelo de capas\nRed\nEnlace\nFísica\nAplicación\nTransporte\nRed\nEnlace\nFísica\nAplicación\nTransporte\nRed\nEnlace\nFísica\nHt\nHn\nM\nsegmento\nHt\ndatagrama\nDestino\nHt\nHn\nHl\nM\nHt\nHn\nM\nHt\nM\nM\nHt\nHn\nHl\nM\nHt\nHn\nM\nHt\nHn\nM\nHt\nHn\nHl\nM\nrouter\nswitch\nmensaje\nM\nHt\nM\nHn\ntrama\nEnlace\nFísica\nOrigen\nHt\nHn\nHl\nM\nHt\nHn\nHl\nM\nHt\nHn\nHl\nM\nArquitectura",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 14,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "segmento\nHt\ndatagrama\nDestino\nHt\nHn\nHl\nM\nHt\nHn\nM\nHt\nM\nM\nHt\nHn\nHl\nM\nHt\nHn\nM\nHt\nHn\nM\nHt\nHn\nHl\nM\nrouter\nswitch\nmensaje\nM\nHt\nM\nHn\ntrama\nEnlace\nFísica\nOrigen\nHt\nHn\nHl\nM\nHt\nHn\nHl\nM\nHt\nHn\nHl\nM\nArquitectura\n¿Qué papel y responsabilidad tienen los procesos (programas en ejecución) en la arquitectura \nglobal?\n▪Cliente-servidor: los procesos toman el papel de ser clientes o servidores.\n▪Peer-to-peer: todos los procesos involucrados en una tarea tienen papeles similares, interaccionan \nde forma cooperativa sin ninguna distinción entre procesos cliente y servidor. En términos \nprácticos, todos los procesos participantes ejecutan el mismo programa y ofrece el mismo juego de \ninterfaces para cada uno.\n29\n1. Caracterización de los sistemas distribuidos\n2. Retos de los sistemas distribuidos\n3. Arquitectura\n4. Coordinación\n5. Estimación de retrasos en la red\n30\nContenido\nCoordinación\n1. Sincronización de reloj\n▪Algoritmo de Cristian\n▪NTP\n2. Exclusión mutua\n▪Algoritmo centralizado\n▪Algoritmo distribuido",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 15,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "4. Coordinación\n5. Estimación de retrasos en la red\n30\nContenido\nCoordinación\n1. Sincronización de reloj\n▪Algoritmo de Cristian\n▪NTP\n2. Exclusión mutua\n▪Algoritmo centralizado\n▪Algoritmo distribuido\n▪Algoritmo token ring\n31\nCoordinación\n1. Sincronización de reloj\n▪Algoritmo de Cristian\n▪NTP\n2. Exclusión mutua\n▪Algoritmo centralizado\n▪Algoritmo distribuido\n▪Algoritmo token ring\n32\nSincronización de reloj\n▪\nDe manera general, el término sincronización hace referencia al conjunto de mecanismos que se \nutilizan para coordinar múltiples actividades en un determinado sistema o aplicación.\n▪\nEn el caso de un sistema distribuido, la sincronización plantea algunos problemas adicionales, \npues no podemos confiar en la existencia de ningún reloj que todos los procesos puedan consultar.\n▪\nDebido a esto, ni siquiera resulta sencillo determinar en qué orden llegaron a suceder algunos \neventos, si estos fueron ejecutados por procesos ubicados en distintos ordenadores.\n33\nSincronización de reloj\n▪",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 16,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "eventos, si estos fueron ejecutados por procesos ubicados en distintos ordenadores.\n33\nSincronización de reloj\n▪\nBuscamos utilizar un algoritmo que consiga sincronizar entre sí los relojes locales utilizados en \ncada uno de los nodos.\n▪\nEl objetivo es aproximar lo máximo posible el reloj de cada máquina a la hora real.\n▪\nCon esto se garantiza que:\no Todos los relojes progresan al mismo tiempo.\no Todo proceso pueda utilizar su reloj local para etiquetar la ocurrencia del evento.\n▪\nProblema: aunque el tiempo de transmisión en las redes actuales cada vez disminuye más (redes \nmás rápidas), la frecuencia de los procesadores actuales, así como el número de instrucciones \nque pueden ejecutar en cada unidad de tiempo, también crece muy deprisa.\n▪\nAunque los relojes actuales son relativamente precisos, todavía distan mucho de ser perfectos.\n▪\nLos relojes presentan ligeras desviaciones en su progreso respecto a la hora real y eso puede",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 17,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "▪\nAunque los relojes actuales son relativamente precisos, todavía distan mucho de ser perfectos.\n▪\nLos relojes presentan ligeras desviaciones en su progreso respecto a la hora real y eso puede \ngenerar importantes diferencias cuando se ejecutan operaciones en ordenadores con \nmicroprocesadores diferentes.\n34\nSincronización de reloj\n▪\nNormalmente un ordenador tiene un temporizador que genera interrupciones con cierta \nfrecuencia y que el sistema operativo programará adecuadamente para llevar una gestión \nadecuada del instante actual.\n▪\nAsí, cuando el ordenador arranque, el sistema operativo averiguará cuál es la hora actual e \ninicializará de acuerdo con ésta el valor del contador.\n▪\nPor ejemplo, en la mayoría de los sistemas UNIX, el contador recoge el número de ticks desde el 1 \nde Enero de 1970 a las 00:00:00 horas y avanza a unos 60 o 100 ticks por segundo.\n▪\nSi todos los temporizadores utilizados fueran perfectos, en todo instante, todos los ordenadores",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 18,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "de Enero de 1970 a las 00:00:00 horas y avanza a unos 60 o 100 ticks por segundo.\n▪\nSi todos los temporizadores utilizados fueran perfectos, en todo instante, todos los ordenadores \nde un sistema distribuido tendrían relojes con el mismo valor para su contador local. Sin embargo, \nlos chips de reloj actuales tienen un error relativo.\n▪\nPor ejemplo, si el temporizador está programado para generar 60 interrupciones por segundo, \ndebería generar 216.000 ticks por hora. Un temporizador convencional, con un error relativo del \n0,001 % generará entre 215998 y 216002 interrupciones.\n▪\nLos algoritmos de sincronización de relojes tratan de ajustar estos desfases.\n35\nSincronización de reloj\n36\n▪\nLos algoritmos de sincronización están basados en el intercambio de mensajes entre los nodos \nque quieran sincronizar sus relojes. La transmisión de un mensaje por la red consumirá tiempo y \nserá imposible medir con exactitud cuánto tiempo se ha invertido en ese paso, pues los relojes",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 19,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "que quieran sincronizar sus relojes. La transmisión de un mensaje por la red consumirá tiempo y \nserá imposible medir con exactitud cuánto tiempo se ha invertido en ese paso, pues los relojes \nutilizados en el emisor y en el receptor todavía no están sincronizados.\n▪\nLos relojes utilizados en cada máquina no deberían retroceder nunca. En caso contrario, algunas \naplicaciones podrían funcionar mal. Un ejemplo sería la utilidad make que examina los instantes \nde última modificación de una colección de ficheros.\nAlgoritmo de Cristian\n37\nEste algoritmo asume que existe un ordenador cuyo reloj es preciso \n(será el servidor). Los que quieren sincronizarse con él serán sus \nclientes:\n1- El cliente pide el valor del reloj al servidor en el instante T0, \nsegún el reloj local del cliente Cc.\n2- El servidor recibe la petición y responde con el valor que tenga \nsu reloj, Cs justo antes de enviar el mensaje de respuesta.\n3- La respuesta llega al cliente en T1, según el reloj local del cliente.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 20,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "su reloj, Cs justo antes de enviar el mensaje de respuesta.\n3- La respuesta llega al cliente en T1, según el reloj local del cliente.\n4- El cliente calcula el valor al que debería poner su reloj (C) según:\n𝐶= 𝐶𝑠+ 𝑇1 −𝑇0 −𝜏𝑝\n2\n5- Si C>Cc, entonces el cliente establece su reloj local al valor C. En \ncaso contrario, se descartarán algunos ticks de reloj según Cc-C.\nAlgoritmo de Cristian\n38\nNota: Este algoritmo asume que el tiempo invertido en la transmisión del mensaje de petición \nserá similar al invertido en la transmisión del mensaje de respuesta. Si la diferencia entre esas \ndos transmisiones es importante, la sincronización efectuada será imprecisa.\nNTP\nNTP (Network Time Protocol) define una arquitectura para \ninformación de tiempo distribuida en Internet. Actualizado en RFC \n7822.\nEl servicio NTP es proporcionado por una red de servidores localizados \nen diferentes puntos de Internet. Los servidores primarios (nivel 1)",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 21,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "7822.\nEl servicio NTP es proporcionado por una red de servidores localizados \nen diferentes puntos de Internet. Los servidores primarios (nivel 1) \nestán conectados con una fuente de tiempo y los secundarios están \nsincronizados con los primarios. \nLos servidores conectados en una subred de sincronización en \ndiferentes niveles o estratos (las flechas indican control de \nsincronización).\nNTP tiene en cuenta los retrasos de los mensajes.\nLa subred de sincronización puede reconfigurarse en caso de fallos o \nque no se alcance algún servidor.\nFunciona sobre UDP.\n39\nCoordinación\n1. Sincronización de reloj\n▪Algoritmo de Cristian\n▪NTP\n2. Exclusión mutua\n▪Algoritmo centralizado\n▪Algoritmo distribuido\n▪Algoritmo token ring\n40\nExclusión mutua\nVamos a ver algunos ejemplos de algoritmos para alcanzar la exclusión mutua entre una \ncolección de procesos, de forma que coordinan el acceso a recursos compartidos en sistemas \ndistribuidos.\n▪Basados en permisos (necesita permiso de otro proceso).",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 22,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "colección de procesos, de forma que coordinan el acceso a recursos compartidos en sistemas \ndistribuidos.\n▪Basados en permisos (necesita permiso de otro proceso).\no Algoritmo centralizado\no Algoritmo distribuido\n▪Basados en token (un token es pasado entre los procesos).\no Algoritmo token ring\n41\nAlgoritmo centralizado\na)\nEl proceso P1 solicita al coordinador permiso para acceder al recurso compartido. El permiso es \ndado.\nb)\nEl proceso P2 entonces solicita permiso para acceder al mismo recurso. El coordinador no \nresponde.\nc)\nCuando P1 libera el recurso, se lo dice al coordinador y éste responde a P2.\n42\nAlgoritmo centralizado\nVentajas:\n▪Requiere pocos mensajes para completar la gestión del acceso a una sección crítica.\n▪El coordinador sabe si la sección crítica está libre u ocupada, y en función de ello sólo permite \nque un único proceso la ejecute en cada momento.\nDesventajas:\n▪La comunicación debe ser fiable, pues la pérdida de algún mensaje puede tener efectos graves.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 23,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "que un único proceso la ejecute en cada momento.\nDesventajas:\n▪La comunicación debe ser fiable, pues la pérdida de algún mensaje puede tener efectos graves. \nPor ejemplo, la pérdida de un mensaje de petición implicaría que el solicitante correspondiente \npermanezca suspendido indefinidamente.\n▪El proceso coordinador constituye un punto único de fallo. Con la caída del proceso \ncoordinador se perdería toda la información relacionada con el estado actual de la sección \ncrítica y la identidad de su proceso propietario.\n43\nAlgoritmo distribuido\n1- Cuando un proceso quiere acceder a la sección crítica, difundirá un mensaje INTENTAR a todos\nlos procesos del sistema.\n2- Cuando un proceso reciba un mensaje INTENTAR, actuará de la siguiente forma:\n-\nSi no está en la sección crítica ni intentaba entrar, responderá con un mensaje OK.\n-\nSi está en la sección crítica, no contesta, pero encola el mensaje.\n-\nSi no está en la sección crítica, pero quiere entrar, compara el número de evento del",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 24,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "-\nSi está en la sección crítica, no contesta, pero encola el mensaje.\n-\nSi no está en la sección crítica, pero quiere entrar, compara el número de evento del \nmensaje entrante con el que él mismo envió al resto. Vence el número más bajo.\n-\nSi el mensaje entrante es más bajo, el receptor responde OK.\n-\nSi fuera más alto, no responde y encola el mensaje.\n3- Un proceso entrará en la sección crítica cuando recibe OK de todos (todos aceptan la entrada). \nCuando abandone la sección, enviará OK a todos los procesos que enviaron los mensajes que \nretuvo en su cola (avisa la salida).\n44\nAlgoritmo token ring\n45\n▪Organiza los procesos en un anillo lógico.\n▪Permite que un token se pase entre todos los procesos.\n▪El que tiene el token puede acceder a la región crítica (si quiere).\n1. Caracterización de los sistemas distribuidos\n2. Retos de los sistemas distribuidos\n3. Arquitectura\n4. Coordinación\n5. Estimación de retrasos en la red\n46\nContenido\nRetrasos en redes de conmutación de paquetes",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 25,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "2. Retos de los sistemas distribuidos\n3. Arquitectura\n4. Coordinación\n5. Estimación de retrasos en la red\n46\nContenido\nRetrasos en redes de conmutación de paquetes\nVamos a estudiar cuatro posibles tipos de retardos de comunicación en un sistema distribuido:\n1. Retardo de transmisión\n2. Retardo de propagación\n3. Retardo de procesado\n4. Retardo en cola\n47\ndproc: retraso de procesado\n▪Comprobar error bits\n▪Determinar enlace de salida\n▪Del orden de microsegundos\ndcola: retraso de cola\n▪Tiempo esperando en el enlace de \nsalida para transmisión\n▪Depende del nivel de congestión del \nrouter\npropagación\nprocesado\ncola\ndnodo = dproc + dcola + dtrans +  dprop\nA\nB\ntransmisión\nRetrasos en redes de conmutación de paquetes\n48\npropagación\nprocesado\ncola\ndnodo = dproc + dcola + dtrans +  dprop\nA\nB\ntransmisión\nRetrasos en redes de conmutación de paquetes\ndtrans: retraso de transmisión\n▪L: longitud del paquete (bits) \n▪R: tasa transmisión enlace (bps)\n▪dtrans = L/R\ndprop: retraso de propagación",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 26,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "transmisión\nRetrasos en redes de conmutación de paquetes\ndtrans: retraso de transmisión\n▪L: longitud del paquete (bits) \n▪R: tasa transmisión enlace (bps)\n▪dtrans = L/R\ndprop: retraso de propagación\n▪d: longitud física del enlace\n▪v: velocidad propagación\n▪dprop = d/v\n49\nPerdida de paquetes\n50\nA\nB\nPaquetes en buffers (retraso de cola)\nCola de paquetes: cuando no hay disponibilidad\nlos paquetes se pierden\nComparación retraso transmisión y \npropagación\n51\n10 coches = caravana = paquete\nCoche = bit. Los coches se propagan a 100 km/h\nEl peaje tarda 12 s en servir a un coche (retardo de transmisión)\n¿Cuánto tiempo tardará hasta que la caravana esté por completo ante el segundo peaje?\nAnalogía caravana de coches\n100 km\n100 km\nComparación retraso transmisión y \npropagación\n52\n10 coches = caravana = paquete\nCoche = bit. Los coches se propagan a 100 km/h\nEl peaje tarda 12 s en servir a un coche (retardo de transmisión)",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 27,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Comparación retraso transmisión y \npropagación\n52\n10 coches = caravana = paquete\nCoche = bit. Los coches se propagan a 100 km/h\nEl peaje tarda 12 s en servir a un coche (retardo de transmisión)\n¿Cuánto tiempo tardará hasta que la caravana esté por completo ante el segundo peaje?\n12x10=120 s=2 min\n100km/(100km/h)=1 h=60 min\nRespuesta: 62 min\nAnalogía caravana de coches\n100 km\n100 km\nComparación retraso transmisión y \npropagación\n53\n10 coches = caravana = paquete\nCoche = bit. Los coches se propagan a 1000 km/h\nEl peaje tarda 1 min en servir a un coche (retardo de transmisión)\n¿Llegarán coches al segundo peaje antes de que se de servicio a todos los coches en el primer \npeaje?\nAnalogía caravana de coches\n100 km\n100 km\nComparación retraso transmisión y \npropagación\n54\n10 coches = caravana = paquete\nCoche = bit. Los coches se propagan a 1000 km/h\nEl peaje tarda 1 min en servir a un coche (retardo de transmisión)",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 28,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Comparación retraso transmisión y \npropagación\n54\n10 coches = caravana = paquete\nCoche = bit. Los coches se propagan a 1000 km/h\nEl peaje tarda 1 min en servir a un coche (retardo de transmisión)\n¿Llegarán coches al segundo peaje antes de que se de servicio a todos los coches en el primer \npeaje?\nSí, después de 7 min el primer coche llega mientras tres coches están aún en el primer peaje\nAnalogía caravana de coches\n100 km\n100 km\nRetrasos: representación\n55\nRetraso de procesado\nRetrasos de transmisión y propagación\nRetraso de cola\n56\nIntensidad de tráfico = La/R\nRetraso de cola medio\n1\n▪a: tasa de llegada de paquetes media\n▪L: longitud del paquete (bits)\n▪R: ancho de banda del enlace (tasa de \ntransmisión)\n▪La/R ~ 0: retraso medio en cola pequeño\n▪La/R -> 1: retraso medio en cola grande\n▪La/R > 1: más “trabajo” llegando es más \nde lo que puede ser servido - ¡retraso \nmedio infinito!\nTasa de servicio de bits\nR\nTasa llegada de bits\nL a\n.\n:\n“Intensidad\nde tráfico”\nLa/R ~ 0\nLa/R -> 1",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 29,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "▪La/R > 1: más “trabajo” llegando es más \nde lo que puede ser servido - ¡retraso \nmedio infinito!\nTasa de servicio de bits\nR\nTasa llegada de bits\nL a\n.\n:\n“Intensidad\nde tráfico”\nLa/R ~ 0\nLa/R -> 1\nRetrasos “reales”\n57\n▪Traceroute (RFC 1393): proporciona medidas de retraso desde la fuente a los routers en el \ncamino hacia el destino.\n▪Envía tres paquetes que alcanzarán al router i de la ruta hacia el destino (con el campo TTL con \nvalor i).\n▪El router i devuelve paquetes al origen.\n▪El host origen mide el intervalo de tiempo entre la transmisión y la respuesta.\n3 pruebas\nRetrasos “reales”\n58\n▪Traceroute (RFC 1393): proporciona medidas de retraso desde la fuente a los routers en el \ncamino hacia el destino.\n▪Envía tres paquetes que alcanzarán al router i de la ruta hacia el destino (con el campo TTL con \nvalor i).\n▪El router i devuelve paquetes al origen.\n▪El host origen mide el intervalo de tiempo entre la transmisión y la respuesta.\n3 pruebas\nRetrasos “reales”\n59",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 30,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "valor i).\n▪El router i devuelve paquetes al origen.\n▪El host origen mide el intervalo de tiempo entre la transmisión y la respuesta.\n3 pruebas\nRetrasos “reales”\n59\n▪Traceroute (RFC 1393): proporciona medidas de retraso desde la fuente a los routers en el \ncamino hacia el destino.\n▪Envía tres paquetes que alcanzarán al router i de la ruta hacia el destino (con el campo TTL con \nvalor i).\n▪El router i devuelve paquetes al origen.\n▪El host origen mide el intervalo de tiempo entre la transmisión y la respuesta.\n3 pruebas\nRetrasos “reales”\n60\n1  cs-gw (128.119.240.254)  1 ms  1 ms  2 ms\n2  border1-rt-fa5-1-0.gw.umass.edu (128.119.3.145)  1 ms  1 ms  2 ms\n3  cht-vbns.gw.umass.edu (128.119.3.130)  6 ms 5 ms 5 ms\n4  jn1-at1-0-0-19.wor.vbns.net (204.147.132.129)  16 ms 11 ms 13 ms \n5  jn1-so7-0-0-0.wae.vbns.net (204.147.136.136)  21 ms 18 ms 18 ms \n6  abilene-vbns.abilene.ucaid.edu (198.32.11.9)  22 ms  18 ms  22 ms\n7  nycm-wash.abilene.ucaid.edu (198.32.8.46)  22 ms  22 ms  22 ms",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 31,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "6  abilene-vbns.abilene.ucaid.edu (198.32.11.9)  22 ms  18 ms  22 ms\n7  nycm-wash.abilene.ucaid.edu (198.32.8.46)  22 ms  22 ms  22 ms\n8  62.40.103.253 (62.40.103.253)  104 ms 109 ms 106 ms\n9  de2-1.de1.de.geant.net (62.40.96.129)  109 ms 102 ms 104 ms\n10  de.fr1.fr.geant.net (62.40.96.50)  113 ms 121 ms 114 ms\n11  renater-gw.fr1.fr.geant.net (62.40.103.54)  112 ms  114 ms  112 ms\n12  nio-n2.cssi.renater.fr (193.51.206.13)  111 ms  114 ms  116 ms\n13  nice.cssi.renater.fr (195.220.98.102)  123 ms  125 ms  124 ms\n14  r3t2-nice.cssi.renater.fr (195.220.98.110)  126 ms  126 ms  124 ms\n15  eurecom-valbonne.r3t2.ft.net (193.48.50.54)  135 ms  128 ms  133 ms\n16  194.214.211.25 (194.214.211.25)  126 ms  128 ms  126 ms\n17  * * *\n18  * * *\n19  fantasia.eurecom.fr (193.55.113.142)  132 ms  128 ms  136 ms\ntraceroute: gaia.cs.umass.edu a www.eurecom.fr\n3 medidas de retraso de \ngaia.cs.umass.edu a cs-gw.cs.umass.edu\n3 medidas de retraso\na border1-rt-fa5-1-0.gw.umass.edu \n¡GRACIAS!",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA1_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 32,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "2. Capa de aplicación\nGrado en Ingeniería Informática y Tecnologías Virtuales\nGrado en Ingeniería del Software\nSoftware de Comunicaciones\nCurso 2025-2026\n1- La web y HTTP\n2- DNS\n3- Streaming de video y redes de distribución de contenido\n4- Programación de sockets: creando aplicaciones de red\n2\nContenido\n1- La web y HTTP\n2- DNS\n3- Streaming de video y redes de distribución de contenido\n4- Programación de sockets: creando aplicaciones de red\n3\nContenido\nArquitectura: modelo de capas\n4\nEnlace\nAplicación\nRed\nTransporte\nFísica\n▪Aplicación: aplicaciones de red\n• HTTP, IMAP, SMTP, DNS, FTP, NTP, DHCP\n▪Transporte: transferencia de datos entre \nprocesos\n• TCP, UDP\n▪Red: enrutado de datagramas desde la fuente al \ndestino\n• IP, ARP, ICMP, IGMP\n▪Enlace: transferencia de datos entre vecinos\n• Ethernet, 802.11 (WiFi), PPP\n▪Física: bits en el medio físico\n▪\nHasta principios de 1990, Internet era usado principalmente por investigadores, profesores y",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 0,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "• Ethernet, 802.11 (WiFi), PPP\n▪Física: bits en el medio físico\n▪\nHasta principios de 1990, Internet era usado principalmente por investigadores, profesores y \nestudiantes universitarios para acceder a equipos remotos, transferir archivos entre equipos, \nenviar y recibir correos electrónicos…\n▪\nUna nueva aplicación apareció: La World Wide Web. \no Primera aplicación que llegó al público general.\no Desarrollada por Berners-Lee en el CERN (propuso un sistema de gestión de información \ndistribuida basada en Internet).\n▪\nHTTP (HyperText Transfer Protocol). El protocolo de la capa de aplicación de la web. (RFCs 1945, \n7230 y 7540).\no Implementados en dos programas: cliente y servidor.\no Intercambian mensajes HTTP.\n5\nLa web y HTTP\n6\nLa web y HTTP\nwww.someschool.edu/someDept/pic.gif\nhostname\nruta\n▪\nPágina web consiste en objetos, cada uno de los cuales pueden ser almacenados en diferentes \nservidores. Un objeto es simplemente un archivo (archivo HTML, imagen JPEG, archivo JavaScript,",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 1,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "ruta\n▪\nPágina web consiste en objetos, cada uno de los cuales pueden ser almacenados en diferentes \nservidores. Un objeto es simplemente un archivo (archivo HTML, imagen JPEG, archivo JavaScript, \narchivo de hoja de estilo CSS o un videoclip).\n▪\nMayoría de página web consisten en un archivo HTML (HyperText Markup Language) base y varios \nobjetos referenciados.\n▪\nEl archivo HTML referencia los otros objetos en la página con la URL (Uniform Resource Locator) de \nlos objetos.\n▪\nCada URL tiene dos componentes: el nombre del servidor (hostname) que contiene el objeto y la \nruta del objeto.\n▪\nHTTP: modelo cliente-servidor.\no Cliente: navegador que realiza peticiones \n(usando el protocolo HTTP) y muestra \nobjetos web.\no Servidor: envía objetos (usando el \nprotocolo HTTP) en respuesta a \npeticiones.\n7\nHTTP\niPhone\nNavegador Safari\nPC\nNavegador Firefox\nServidor Web\nApache\n▪\nHTTP usa TCP:\no Los clientes inician una conexión (crean sockets) TCP al servidor. Puerto 80.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 2,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "peticiones.\n7\nHTTP\niPhone\nNavegador Safari\nPC\nNavegador Firefox\nServidor Web\nApache\n▪\nHTTP usa TCP:\no Los clientes inician una conexión (crean sockets) TCP al servidor. Puerto 80.\no Los servidores aceptan una conexión TCP del cliente.\no Intercambio de mensajes HTTP.\no Cierre de la conexión TCP.\n▪\nDos tipos de conexiones HTTP:\no No persistente: solo un objeto enviado sobre una conexión TCP.\no Persistente: múltiples objetos pueden ser enviados sobre una conexión TCP.\n8\nHTTP\nConexiones no persistentes:\n1- Cliente HTTP inicia conexión al servidor \nHTTP (proceso) en www.someschool.edu en \nel puerto 80.\n3- Cliente HTTP envía un mensaje de petición \n(request) que contiene una URL a la conexión \nTCP del socket. El mensaje indica que el \ncliente quiere objeto:\nsomeDept/home.index\n5- El cliente HTTP recibe respuesta que \ncontiene el archivo html. En el archivo html\nencuentra 10 referencias a objetos jpeg.\n7- Repetir pasos 1-6 para cada uno de los 10 \nobjetos jpeg.\n9\nHTTP",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 3,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "5- El cliente HTTP recibe respuesta que \ncontiene el archivo html. En el archivo html\nencuentra 10 referencias a objetos jpeg.\n7- Repetir pasos 1-6 para cada uno de los 10 \nobjetos jpeg.\n9\nHTTP\n2- Servidor HTTP en el equipo: \nwww.someschool.edu esperando una \nconexión en el puerto 80 acepta la conexión y \nlo notifica al cliente.\n4- Servidor HTTP recibe mensaje de petición, \ncrea el mensaje de respuesta que contiene el \nobjeto pedido y envía el mensaje al socket.\n6- Servidor HTTP cierra la conexión TCP.\nEl usuario introduce la URL: www.someschool.edu/someDept/home.index\n(con texto y referencias a 10 imágenes jpeg)\nConexiones no persistentes: tiempo de respuesta\n▪\nRTT (round-trip time): tiempo que tarda un paquete \npequeño del cliente al servidor en ir y volver.\n▪\nRTT incluye retrasos de propagación, cola en los \nconmutadores y routers, retardo de procesado.\n▪\nTiempo de respuesta HTTP:\no 1 RTT para iniciar conexión TCP.\no 1 RTT para petición.\no Tiempo transmisión objeto/archivo.\n▪",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 4,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "conmutadores y routers, retardo de procesado.\n▪\nTiempo de respuesta HTTP:\no 1 RTT para iniciar conexión TCP.\no 1 RTT para petición.\no Tiempo transmisión objeto/archivo.\n▪\nTiempo de respuesta no persistente = 2·RTT + \ntiempo transmisión archivo.\n10\nHTTP\nTiempo \npara \ntransmitir \narchivo\nIniciar \nconexión \nTCP\nRTT\nPetición archivo\nRTT\nArchivo \nrecibido\ntiempo\n▪\nInconvenientes HTTP no persistente:\no Requiere 2 RTTs por objeto.\no Sobrecarga del Sistema Operativo para cada conexión TCP.\no Navegadores usan múltiples conexiones TCP paralelas para ir a alcanzar objetos referenciados \nen paralelo.\n▪\nPersistente:\no El servidor deja la conexión abierta después de enviar la respuesta.\no Mensajes que vienen luego enviados sobre la conexión abierta.\no Cliente envía peticiones tan pronto como encuentra un objeto referenciado.\n11\nHTTP\n▪\nLas RFCs definen el formato del mensaje.\n▪\nDos tipos de mensajes: mensajes de petición y mensajes de respuesta.\n12\nHTTP: formato del mensaje",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 5,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "11\nHTTP\n▪\nLas RFCs definen el formato del mensaje.\n▪\nDos tipos de mensajes: mensajes de petición y mensajes de respuesta.\n12\nHTTP: formato del mensaje\nMensaje típico de petición:\nGET /somedir/page.html HTTP/1.1\nHost: www.example.org\nConnection: close\nUser-agent: Mozilla/5.0\nAccept-language: fr\nMensaje típico de respuesta:\nHTTP/1.1 200 OK\nConnection: close\nDate: Tue, 18 Aug 2015 15:44:04 GMT\nServer: Apache/2.2.3 (CentOS)\nLast-Modified: Tue, 18 Aug 2015 15:11:03 GMT\nContent-Length: 6821\nContent-Type: text/html\n(data…)\n13\nHTML\n<!DOCTYPE html>\n<html>\n<head>\n<title>Page Title</title>\n</head>\n<body>\n<h1>My First Heading</h1>\n<p>My first paragraph.</p>\n</body>\n</html>\n▪HTML es el lenguaje de marcas estándar para crear \npáginas web.\n▪HTML describe la estructura de una página web.\nVisualización de la estructura de una página web:\n14\nHTML\n<a href=\"https://www.uloyola.es\">This is a link</a>\n<img src= \"imagen.jpg\" alt= \"alternative_text\" width=\"104\" height=“142\">\n▪\nEnlaces HTML\n▪\nImágenes HTML\n15",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 6,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "14\nHTML\n<a href=\"https://www.uloyola.es\">This is a link</a>\n<img src= \"imagen.jpg\" alt= \"alternative_text\" width=\"104\" height=“142\">\n▪\nEnlaces HTML\n▪\nImágenes HTML\n15\nHTTP mensaje de petición\nLíneas de cabecera\nGET /index.html HTTP/1.1\\r\\n\nHost: www.google.com\\r\\n\nUser-Agent: Firefox/3.6.10\\r\\n\nAccept: text/html,application/xhtml+xml\\r\\n\nAccept-Language: en-us,en;q=0.5\\r\\n\nAccept-Encoding: gzip,deflate\\r\\n\nAccept-Charset: ISO-8859-1,utf-8;q=0.7\\r\\n\nKeep-Alive: 115\\r\\n\nConnection: keep-alive\\r\\n\n\\r\\n\nLínea de petición \n(comandos GET, \nPOST, HEAD)\nCaracteres de retorno y \nde línea indican el final \nde las líneas de cabecera\nCarácter de retorno\nCarácter de línea\n16\nHTTP mensaje de petición: formato general\nLínea de petición\nLíneas de cabecera\nCuerpo\nmethod\nsp\nsp\ncr\nlf\nversion\nURL\ncr\nlf\nvalue\nheader field name\ncr\nlf\nvalue\nheader field name\n~~\n~~\ncr\nlf\nentity body\n~~\n~~\nsp\nsp\n17\nHTTP mensaje de petición\n▪\nGET",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 7,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Líneas de cabecera\nCuerpo\nmethod\nsp\nsp\ncr\nlf\nversion\nURL\ncr\nlf\nvalue\nheader field name\ncr\nlf\nvalue\nheader field name\n~~\n~~\ncr\nlf\nentity body\n~~\n~~\nsp\nsp\n17\nHTTP mensaje de petición\n▪\nGET\nCuando el navegador pide un objeto. El objeto pedido está identificado en el campo URL (Uniform\nResource Locator).\n▪\nPOST\nUn cliente HTTP lo usa cuando el usuario rellena un formulario, por ejemplo, cuando un usuario \nproporciona palabras en un motor de búsqueda.\nEl cuerpo del mensaje contiene lo que el usuario ha introducido en el formulario.\n▪\nHEAD\nCuando el servidor recibe un mensaje responde con un mensaje HTTP pero omite el objeto pedido.\n▪\nPUT\nUsado con herramientas de publicación web o aplicaciones que necesitan subir objetos a servidores. \nPermite al usuario subir objetos a una ruta especificada en el servidor web.\n▪\nDELETE\nPermite borrar un objeto en un servidor web.\n18\nHTTP mensaje de petición\nUna petición generada con un formulario no tiene por qué usar POST obligatoriamente.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 8,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "▪\nDELETE\nPermite borrar un objeto en un servidor web.\n18\nHTTP mensaje de petición\nUna petición generada con un formulario no tiene por qué usar POST obligatoriamente.\nSe puede usar GET e incluye los datos en la URL pedida.\nEjemplo: las entradas de dos campos son monkeys y bananas. La URL será:\nwww.algunsitio.com/busquedaanimal?monkeys&bananas\n19\nURL en detalle\n20\nHTTP mensaje de respuesta\nLínea de estado \n(códigos de estado y \nfrases asociadas)\nLíneas de cabecera\nDatos, por ejemplo el \narchivo HTML pedido\nHTTP/1.1 200 OK\\r\\n\nDate: Sun, 26 Sep 2010 20:09:20 GMT\\r\\n\nServer: Apache/2.0.52 (CentOS)\\r\\n\nLast-Modified: Tue, 30 Oct 2007 17:00:02 GMT\\r\\n\nETag: \"17dc6-a5c-bf716880\"\\r\\n\nAccept-Ranges: bytes\\r\\n\nContent-Length: 2652\\r\\n\nKeep-Alive: timeout=10, max=100\\r\\n\nConnection: Keep-Alive\\r\\n\nContent-Type: text/html; charset=ISO-8859-1\\r\\n\n\\r\\n\ndata data data data data ... \n21\nHTTP mensaje de respuesta: formato general\nLínea de estado\nLíneas de cabecera\nCuerpo\nversion\nsp\nsp\ncr\nlf\nphrase",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 9,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Content-Type: text/html; charset=ISO-8859-1\\r\\n\n\\r\\n\ndata data data data data ... \n21\nHTTP mensaje de respuesta: formato general\nLínea de estado\nLíneas de cabecera\nCuerpo\nversion\nsp\nsp\ncr\nlf\nphrase\ncode\ncr\nlf\nvalue\nheader field name\ncr\nlf\nvalue\nheader field name\n~~\n~~\ncr\nlf\nentity body\n~~\n~~\nsp\nsp\n22\nHTTP mensaje de respuesta\n▪\n200 OK\nLa petición ha tenido éxito y la información es devuelta en la respuesta.\n▪\n301 Moved Permanently\nEl objeto pedido ha sido movido permanentemente. La nueva URL es especificada en la cabecera \nLocation del mensaje de respuesta. El cliente automáticamente recupera la nueva URL.\n▪\n400 Bad Request\nCódigo de error genérico indicando que la petición no puede ser entendida por el servidor.\n▪\n404 Not Found\nEl documento pedido no existe en el servidor.\n▪\n505 HTTP Version Not Supported\nLa versión del protocolo HTTP no es soportada por el servidor.\n23\nInteracción usuario-servidor: Cookies\n▪",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 10,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "404 Not Found\nEl documento pedido no existe en el servidor.\n▪\n505 HTTP Version Not Supported\nLa versión del protocolo HTTP no es soportada por el servidor.\n23\nInteracción usuario-servidor: Cookies\n▪\nA veces es conveniente para un sitio web identificar a los usuarios, ya que el servidor desea \nrestringir el acceso a los usuarios o porque quiere servir contenido en función de la identidad. Por \neso, HTTP usa cookies.\n▪\nCookies (RFC 6265) permite a los sitios web mantener un registro de los usuarios.\n▪\nLas cookies tienen 4 componentes:\no\nUna línea de cabecera cookie en el mensaje de respuesta HTTP.\no\nUna línea de cabecera cookie en el mensaje de petición HTTP.\no\nUn archivo cookie en el sistema final del usuario y manejado por el \nnavegador.\no\nBase de datos backend en el sitio web.\n24\nInteracción usuario-servidor: Cookies\nserver\nusual HTTP response msg\nusual HTTP response msg\ncookie file\none week later:\nusual HTTP request msg\ncookie: 1678\ncookie-\nspecific\naction\naccess\nebay 8734",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 11,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Interacción usuario-servidor: Cookies\nserver\nusual HTTP response msg\nusual HTTP response msg\ncookie file\none week later:\nusual HTTP request msg\ncookie: 1678\ncookie-\nspecific\naction\naccess\nebay 8734\nusual HTTP request msg\nAmazon server\ncreates ID\n1678 for user\ncreate\n    entry\nusual HTTP response \nset-cookie: 1678 \nebay 8734\namazon 1678\nusual HTTP request msg\ncookie: 1678\ncookie-\nspecific\naction\naccess\nebay 8734\namazon 1678\nBase de datos\nbackend\ntime\ntime\nWeb caching\n▪Una web cache (Servidor proxy) satisface las peticiones HTTP en nombre del servidor web origen.\n▪Tiene su propio disco de almacenamiento y mantiene copia de los objetos pedidos.\n▪Un navegador puede ser configurado de forma que todas las peticiones HTTP son dirigidas primero al \nservidor proxy.\n▪Cliente y servidor al mismo tiempo.\n▪Instalado por el ISP.\n▪Reduce el tiempo de respuesta para \npeticiones de clientes.\n▪Reduce el tráfico web.\nclient\nproxy\nserver\nclient\norigin \nserver\norigin \nserver",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 12,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "▪Instalado por el ISP.\n▪Reduce el tiempo de respuesta para \npeticiones de clientes.\n▪Reduce el tráfico web.\nclient\nproxy\nserver\nclient\norigin \nserver\norigin \nserver\nSitios web estáticos y dinámicos\nServidor web puede referirse a:\nHardware: máquina que corre un software y almacena los archivos que componen el sitio web \n(documentos HTML, CSS, JS, …)\nSoftware: programa que controla cómo los usuarios acceden a los archivos. Este servidor \ninterpreta el protocolo HTTP y las URL.\nSitios web estáticos y dinámicos\nLado del servidor\nSitio web estático: Contenido fijo. No se requiere de base de datos ni de programación.\nCliente\nPetición HTTP\nRespuesta HTTP\nArchivos\nHTML\nServidor web\nSitios web estáticos y dinámicos\nLado del servidor\n1\nSitios web dinámicos: el contenido es fácilmente modificable. Se construye usando programación.\nCliente\nPetición HTTP\nRespuesta HTTP\nArchivos\nplantillas HTML\nServidor web\nBase de datos\nAplicación web\n2\n3\n5\nDatos\nRecursos estáticos\n(imágenes, CSS,…)\n6\n7\nPetición",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 13,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Cliente\nPetición HTTP\nRespuesta HTTP\nArchivos\nplantillas HTML\nServidor web\nBase de datos\nAplicación web\n2\n3\n5\nDatos\nRecursos estáticos\n(imágenes, CSS,…)\n6\n7\nPetición\ndatos\n4\nFrontend y backend\n▪\nFrontend: es la parte web que podemos ver y con la que podemos interactuar.\no\nDesarrollo web.\no\nDiseño web.\n▪\nEl frontend es una combinación de:\no\nHTML (estructura).\no\nCSS (estilos).\no\nJavaScript (añade interactividad).\nFrontend y backend\n▪\nBackend: se refiere al lado de una aplicación que está en el servidor, y a todo lo que se comunica con el \nnavegador. Consta de al menos tres elementos:\no\nServidor web (procesa las peticiones HTTP).\no\nServidor de aplicaciones (gestiona la aplicación).\no\nBase de datos.\n▪\nLenguajes de programación del backend:\no\nPHP: lenguaje de scripting que permite generar contenido dinámico. Puede ser incrustado en HTML.\no\nJava\no\nJavaScript\no\nPython\no\nRuby\no\n.NET\n1- La web y HTTP\n2- DNS\n3- Streaming de video y redes de distribución de contenido",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 14,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "o\nJava\no\nJavaScript\no\nPython\no\nRuby\no\n.NET\n1- La web y HTTP\n2- DNS\n3- Streaming de video y redes de distribución de contenido\n4- Programación de sockets: creando aplicaciones de red\n31\nContenido\nDNS: Domain Name System\n▪\nHay dos formas de identificar un equipo, por el hostname o por la dirección IP.\n▪\nEl principal objetivo de DNS (Domain Name System) es la de traducir el hostname a una dirección IP.\n▪\nDNS es una base de datos distribuida implementada en una jerarquía de servidores DNS.\n▪\nDNS es un protocolo de la capa de aplicación.\n▪\nFunciona sobre UDP (puerto 53).\nDNS, una base de datos jerárquica y distribuida\nRoot DNS Servers\n.com DNS servers\n.org DNS servers\n.edu DNS servers\nnyu.edu\nDNS servers\numass.edu\nDNS servers\nyahoo.com\nDNS servers\namazon.com\nDNS servers\npbs.org\nDNS servers\n…\n…\nTop Level Domain\nRoot\nAuthoritative\n…\n…\n…\n…\n▪Más de 1000 servidores root repartidos por todo el mundo.\n▪Servidores TLD: por cada dominio. com, org, edu, net, gov,… y por países es, fr, ca, jp,..",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 15,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "…\n…\nTop Level Domain\nRoot\nAuthoritative\n…\n…\n…\n…\n▪Más de 1000 servidores root repartidos por todo el mundo.\n▪Servidores TLD: por cada dominio. com, org, edu, net, gov,… y por países es, fr, ca, jp,..\n▪Servidores DNS Authoritative: Cada organización con equipos accesibles públicamente (como \nservidores web o servidores de correo) deben proporcionar un registro DNS accesible con la \ncorrespondencia entre nombre de equipos y direcciones IP.\nDNS, petición de IP\nequipo solicitante\nservidor DNS root\nservidor local DNS\n1\n2\n3\n4\n5\n6\nservidor DNS authoritative\n7\n8\nservidor DNS TLD\n▪\nServidor DNS local no pertenece \na la jerarquía.\n▪\nCada ISP tiene un servidor DNS \nlocal.\n▪\nCercano al usuario.\nDNS caching: cuando \nun servidor DNS \nrecibe una respuesta \nDNS puede guardarla \nen su memoria local\n1- La web y HTTP\n2- DNS\n3- Streaming de video y redes de distribución de contenido\n4- Programación de sockets: creando aplicaciones de red\n35\nContenido\nVideo streaming y redes de distribución de contenidos\n▪",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 16,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "2- DNS\n3- Streaming de video y redes de distribución de contenido\n4- Programación de sockets: creando aplicaciones de red\n35\nContenido\nVideo streaming y redes de distribución de contenidos\n▪\nTráfico video streaming: mayor consumidor del ancho de banda de Internet. Ejemplos: Netflix, \nYouTube, Amazon Prime, TikTok,…\n▪\nReto: ¿Cómo alcanzar a tantos usuarios alrededor del mundo?\n▪\nUn único mega servidor de video no funcionaría. ¿Por qué?\n▪\nOtro reto es la heterogeneidad. Diferentes usuarios tienen diferentes capacidades de ancho de \nbanda, red cableada o red móvil, …\nVideo streaming y redes de distribución de contenidos\n▪\nTráfico video streaming: mayor consumidor del ancho de banda de Internet. Ejemplos: Netflix, \nYouTube, Amazon Prime, TikTok,…\n▪\nReto: ¿Cómo alcanzar a tantos usuarios alrededor del mundo?\n▪\nUn único mega servidor de video no funcionaría. ¿Por qué?\n▪\nOtro reto es la heterogeneidad. Diferentes usuarios tienen diferentes capacidades de ancho de",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 17,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "▪\nUn único mega servidor de video no funcionaría. ¿Por qué?\n▪\nOtro reto es la heterogeneidad. Diferentes usuarios tienen diferentes capacidades de ancho de \nbanda, red cableada o red móvil, …\n▪\nSolución: Infraestructura nivel de aplicación distribuida.\nMultimedia: video\n▪\nVideo: secuencia de imágenes mostradas \na una tasa constante, por ejemplo 24 \nimágenes/s.\n▪\nImagen digital: tabla de píxeles. Cada \npixel es representado por bits.\n▪\nCodificación: usar redundancia dentro y \nentre imágenes para reducir el número \nde bits usados para codificar la imagen.\n……………………..\nEjemplo codificación espacial: En \nvez de enviar N valores del mismo \ncolor (todo violeta), enviamos solo \ndos valores: valor del color \n(violeta) y número de valores \nrepetidos (N).\n……………….…….\nimagen i\nimagen i+1\nEjemplo codificación \ntemporal: en vez de enviar \nla imagen completa en i+1, \nenviamos solo las \ndiferencias con i.\no Espacial: dentro de la imagen.\no Temporal: entre imágenes (de \nuna imagen a otra).",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 18,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "temporal: en vez de enviar \nla imagen completa en i+1, \nenviamos solo las \ndiferencias con i.\no Espacial: dentro de la imagen.\no Temporal: entre imágenes (de \nuna imagen a otra).\nMultimedia: video\n▪\nTasa de codificación fija.\n▪\nTasa de codificación variable. Cambia \nsegún la codificación espacial y temporal \ncambia.\n▪\nEjemplos:\no Video en Internet comprimido \ntípicamente varía entre 100 kbps \npara baja calidad hasta 4 Mbps para \npelículas de alta definición.\no Compresión para tener diferentes \nversiones del mismo video, con \ndiferentes calidades, ej: 300 kbps, 1 \nMbps y 3 Mbps.\n……………………..\nEjemplo codificación espacial: En \nvez de enviar N valores del mismo \ncolor (todo violeta), enviamos solo \ndos valores: valor del color \n(violeta) y número de valores \nrepetidos (N).\n……………….…….\nimagen i\nimagen i+1\nEjemplo codificación \ntemporal: en vez de enviar \nla imagen completa en i+1, \nenviamos solo las \ndiferencias con i.\nMultimedia: video\n▪\nReto 1: El ancho de banda entre",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 19,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "……………….…….\nimagen i\nimagen i+1\nEjemplo codificación \ntemporal: en vez de enviar \nla imagen completa en i+1, \nenviamos solo las \ndiferencias con i.\nMultimedia: video\n▪\nReto 1: El ancho de banda entre \ncliente y servidor puede variar en \nfunción del tiempo dependiendo de la \ncongestión del tráfico de red (en casa, \nred acceso, entre routers, en el \nservidor de video,…).\n▪\nReto 2: pérdida de paquetes debido a \nla congestión retrasará la \nvisualización, resultando en un video \nde baja calidad.\nservidor video\n(video almacenado)\ncliente\nInternet\nStreaming multimedia: DASH\nDASH: Dynamic Adaptative Streaming over HTTP.\n▪\nServidor: \no\ndivide el archivo de video en múltiples trozos.\no\nCada trozo es almacenado y codificado a diferentes tasas.\no\nEl servidor contiene lo que se llama manifest file: proporciona URL correspondientes a los \ndiferentes trozos.\n▪\nCliente:\no\nMide periódicamente el ancho de banda entre cliente y servidor.\no",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 20,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "o\nEl servidor contiene lo que se llama manifest file: proporciona URL correspondientes a los \ndiferentes trozos.\n▪\nCliente:\no\nMide periódicamente el ancho de banda entre cliente y servidor.\no\nConsultando manifest, pide un trazo en cada instante de tiempo, eligiendo la tasa de \ncodificación máxima soportada por el ancho de banda dado.\no\nPuede elegir diferentes tasas de codificación en diferentes puntos de tiempo \ndependiendo del ancho de banda disponible.\nStreaming multimedia: DASH\nDASH: Dynamic Adaptative Streaming over HTTP.\n▪\nInteligencia en el cliente. El cliente determina:\no\nCuando pedir un trozo.\no\nCuál tasa de codificación pedir.\no\nDónde pedir el trozo (puede pedir de una URL correspondiente a un servidor más cercano \nal cliente o con mayor ancho de banda disponible).\nStreaming video = codificación + DASH + almacenamiento.\nRedes de distribución de contenido\nCDNs (Content Distribution Networks)\n▪",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 21,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "al cliente o con mayor ancho de banda disponible).\nStreaming video = codificación + DASH + almacenamiento.\nRedes de distribución de contenido\nCDNs (Content Distribution Networks)\n▪\nReto: cómo enviar y recibir contenido (millones de videos y cientos de miles de usuarios \nsimultáneos).\n▪\nOpción 1: Un único mega servidor\no\nÚnico punto de fallo.\no\nPunto de congestión de red.\no\nLarga distancia a clientes.\no\nMúltiples copias de video enviadas por el mismo enlace.\nRedes de distribución de contenido\nCDNs (Content Distribution Networks)\n▪\nReto: cómo enviar y recibir contenido (millones de videos y cientos de miles de usuarios \nsimultáneos).\n▪\nOpción 1: Un único mega servidor\no\nÚnico punto de fallo.\no\nPunto de congestión de red.\no\nLarga distancia a clientes.\no\nMúltiples copias de video enviadas por el mismo enlace.\nEsta solución no es viable\nRedes de distribución de contenido\nCDNs (Content Distribution Networks)\n▪",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 22,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "o\nLarga distancia a clientes.\no\nMúltiples copias de video enviadas por el mismo enlace.\nEsta solución no es viable\nRedes de distribución de contenido\nCDNs (Content Distribution Networks)\n▪\nReto: cómo enviar y recibir contenido (millones de videos y cientos de miles de usuarios \nsimultáneos).\n▪\nOpción 2: almacenar y servir múltiples copias de video en múltiples sitios distribuidos \ngeográficamente (CDNs).\nRedes de distribución de contenido: Netflix\n1\nBob gestiona cuenta \nde Netflix\nRegistro Netflix,\nServidores de \nregistro\nAmazon cloud\nServidor \nCDN\n2\nBob accede a\nvideo de Netflix\nArchivo manifest, \npedido y devuelto \npara video \nespecífico\nServidor DASH \nseleccionado, empieza \nstreaming\nSubir copias de \nmúltiples versiones \nde video a servidores \nCDN\n3\n4\nServidor \nCDN\nServidor \nCDN\n1- La web y HTTP\n2- DNS\n3- Streaming de video y redes de distribución de contenido\n4- Programación de sockets: creando aplicaciones de red\n47\nContenido",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 23,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "CDN\n3\n4\nServidor \nCDN\nServidor \nCDN\n1- La web y HTTP\n2- DNS\n3- Streaming de video y redes de distribución de contenido\n4- Programación de sockets: creando aplicaciones de red\n47\nContenido\nObjetivo: aprender cómo  construir aplicaciones cliente y servidor que se comunican usando sockets \n(en lenguaje C).\nSocket: puerta entre procesos de aplicación y protocolos de transporte (punto a punto).\n48\nProgramación de sockets\nInternet\nControlado por el \nSistema Operativo\nControlado por el \ndesarrollador de \naplicaciones\nTransporte\nAplicación\nFísica\nEnlace\nRed\nProceso\nTransporte\nAplicación\nFísica\nEnlace\nRed\nProceso\nsocket\nProgramación de sockets\n49\nComponentes del kernel\nde Linux para el \nprocesado TCP/IP\nProgramación de sockets\n50\nEncapsulación de datos:\no Los datos se encapsulan en una cabecera por la aplicación (Ejemplo: FTP).\no Los datos y cabecera se encapsulan por la capa siguiente (UDP).\no Luego ocurre igual con el protocolo IP. Prepara el paquete para la ruta.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 24,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "o Los datos y cabecera se encapsulan por la capa siguiente (UDP).\no Luego ocurre igual con el protocolo IP. Prepara el paquete para la ruta.\no Finalmente, Ethernet u otro estándar de la capa de enlace/física.\nProgramación de sockets\n51\nLos servicios de transporte:\n▪\nProporcionan una comunicación lógica entre procesos que corren en diferentes máquinas.\n▪\nDiferencias entre la capa de transporte y la capa de red:\no Capa de transporte: comunicación entre procesos.\no Capa de red: comunicación entre hosts.\nProgramación de sockets\n52\nDos tipos de sockets para dos servicios de transporte:\nUDP (User Datagram Protocol)\no Proporciona una transferencia no fiable de grupos de bytes (datagramas) entre cliente y \nservidor.\no No recupera errores en la transmisión.\no Sólo extiende el servicio ofrecido por la capa IP a los programas (procesos). IP solo envía \ninformación de un host a otro.\no Los datos transmitidos pueden ser perdidos o entregados desordenados.\nTCP (Transmission Control Protocol)",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 25,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "información de un host a otro.\no Los datos transmitidos pueden ser perdidos o entregados desordenados.\nTCP (Transmission Control Protocol)\no Fiable, orientada a un flujo de bytes.\no Detecta y recupera errores, ordenación y pérdida de paquetes.\no Proporciona un canal seguro de envío de bytes, sin que la capa de aplicación tenga que \npreocuparse de estos problemas.\nProgramación de sockets\n53\nProgramación de sockets\n54\nConsideraciones importantes:\no Un programa puede tener varios sockets en uso al mismo tiempo.\no Varios programas pueden estar usando el mismo socket al mismo tiempo.\no Cada socket tiene asociado un puerto local, TCP o UDP que es usado para redirigir los paquetes \nentrantes a la aplicación pertinente.\no Más de un socket puede estar asociado a un puerto local.\nSocket UDP\n55\nsocket(): crea e inicializa el socket\nbind(): asocia un socket con una \ndirección IP local y un número de \npuerto.\nsendto() and recvfrom() son \nusados para enviar y recibir datos.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 26,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Socket UDP\n55\nsocket(): crea e inicializa el socket\nbind(): asocia un socket con una \ndirección IP local y un número de \npuerto.\nsendto() and recvfrom() son \nusados para enviar y recibir datos.\nclose(): cierra el socket.\nSocket TCP\n56\nsocket(): crea e inicializa el socket\nbind(): asocia un socket con una \ndirección IP local y un número de \npuerto.\nlisten(): es usado en el servidor \npara que un socket TCP escuche \nnuevas conexiones.\naccept(): acepta una conexión \ndesde el cliente.\nconnect(): usado en el cliente para \nestablecer la dirección remota y el \npuerto.\nsend() and recv() son usados para \nenviar y recibir datos.\nclose(): cierra el socket.\nMultiplexado/demultiplexado\n57\nproceso\nsocket\nTransporte\nAplicación\nFísica\nEnlace\nRed\nP2\nP1\nTransporte\nAplicación\nFísica\nEnlace\nRed\nP4\nTransporte\nAplicación\nFísica\nEnlace\nRed\nP3\nMultiplexado como remitente. Maneja \ndatos desde múltiples sockets.\nAñade cabecera de transporte.\nUsada después para demultiplexado.\nMultiplexado como receptor.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 27,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Aplicación\nFísica\nEnlace\nRed\nP3\nMultiplexado como remitente. Maneja \ndatos desde múltiples sockets.\nAñade cabecera de transporte.\nUsada después para demultiplexado.\nMultiplexado como receptor.\nManeja la información de \ncabecera para entregar los \nsegmentos recibidos al socket \ncorrecto.\nDemultiplexado no orientado a conexión\n58\n▪\nCuando el host receptor recibe un segmento UDP:\no Comprueba número de puerto de destino en segmento.\no Direcciona el segmento UDP al socket con ese número de puerto.\n▪\nDatagramas IP/UDP con el mismo número de puerto destino, pero diferente dirección IP\nremitente y/o número de puerto remitente serán dirigidos al mismo socket en el host que recibe.\n▪\nUDP: demultiplexado usando solo número de puerto destino.\nDemultiplexado orientado a conexión\n59\n▪\nEl socket TCP está identificado por:\no Dirección IP fuente.\no Número de puerto fuente.\no Dirección IP destino.\no Número de puerto destino.\n▪",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 28,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Demultiplexado orientado a conexión\n59\n▪\nEl socket TCP está identificado por:\no Dirección IP fuente.\no Número de puerto fuente.\no Dirección IP destino.\no Número de puerto destino.\n▪\nDemultiplexado: el receptor usa los cuatro valores para direccionar el segmento al socket \napropiado.\n▪\nCada servidor puedo soportar varios sockets TCP simultáneos:\no Cada socket identificado por sus cuatro valores.\no Cada socket asociado con un cliente diferente.\n¡GRACIAS!",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA2_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 29,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "3. Capa de transporte\nGrado en Ingeniería Informática y Tecnologías Virtuales\nGrado en Ingeniería del Software\nSoftware de Comunicaciones\nCurso 2025-2026\n1- Protocolos de la capa de transporte\n2- UDP\n3- TCP\na. Introducción\nb. Número de secuencia y asentimiento\nc. Mecanismos de retransmisión\nd. Control de flujo\ne. Gestión de la conexión\nf. Control de congestión\n2\nContenido\n1- Protocolos de la capa de transporte\n2- UDP\n3- TCP\na. Introducción\nb. Número de secuencia y asentimiento\nc. Mecanismos de retransmisión\nd. Control de flujo\ne. Gestión de la conexión\nf. Control de congestión\n3\nContenido\nArquitectura: modelo de capas\n4\nEnlace\nAplicación\nRed\nTransporte\nFísica\n▪Aplicación: aplicaciones de red\n• HTTP, IMAP, SMTP, DNS, FTP, NTP, DHCP\n▪Transporte: transferencia de datos entre procesos\n• TCP, UDP\n▪Red: enrutado de datagramas desde la fuente al \ndestino\n• IP, ARP, ICMP, IGMP\n▪Enlace: transferencia de datos entre vecinos\n• Ethernet, 802.11 (WiFi), PPP\n▪Física: bits en el medio físico",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 0,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "• TCP, UDP\n▪Red: enrutado de datagramas desde la fuente al \ndestino\n• IP, ARP, ICMP, IGMP\n▪Enlace: transferencia de datos entre vecinos\n• Ethernet, 802.11 (WiFi), PPP\n▪Física: bits en el medio físico\nProtocolos de la capa de transporte\n5\nUDP (User Datagram Protocol)\no Proporciona una transferencia no fiable de grupos de bytes (datagramas) entre cliente y \nservidor.\no No recupera errores en la transmisión.\no Sólo extiende el servicio ofrecido por la capa IP a los programas (procesos). IP solo envía \ninformación de un host a otro.\no Los datos transmitidos pueden ser perdidos o entregados desordenados.\nTCP (Transmission Control Protocol)\no Fiable, orientada a un flujo de bytes.\no Detecta y recupera errores, ordenación y pérdida de paquetes.\no Proporciona un canal seguro de envío de bytes, sin que la capa de aplicación tenga que \npreocuparse de estos problemas.\nSegmento TCP/UDP\n6\nPuerto Origen #\nPuerto Destino #\n32 bits\nDatos de \naplicación\n(payload)\nOtros campos de cabecera",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 1,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "preocuparse de estos problemas.\nSegmento TCP/UDP\n6\nPuerto Origen #\nPuerto Destino #\n32 bits\nDatos de \naplicación\n(payload)\nOtros campos de cabecera\nFormato segmento TCP/UDP\n▪\nHosts reciben datagramas IP con dirección \nIP fuente y destino.\n▪\nCada datagrama lleva un segmento de la \ncapa de transporte.\n▪\nCada segmento tiene la información del \nnúmero de puerto origen y destino.\n▪\nHosts usan dirección IP y número de \npuertos para direccionar segmentos al \nsocket apropiado.\n▪\nPuertos entre 0 y 1023 están restringidos \n(reservados para aplicaciones conocidas).\nPuertos\n7\nPuerto\nProtocolo\nUso\n20, 21\nFTP\nTransferencia archivos\n22\nSSH\nLogin remoto\n25\nSMTP\nEmail\n80\nHTTP\nWWW\n110\nPOP-3\nAcceso email remoto\n143\nIMAP\nAcceso email remoto\n443\nHTTPS\nWeb segura\n543\nRTPS\nMedia Player Control\n631\nIPP\nImpresora compartida\nLista de puertos reservados: RFC 1700\nActualizado en Internet Assigned Numbers Authority: www.iana.org (RFC 3232)\n1- Protocolos de la capa de transporte\n2- UDP\n3- TCP\na. Introducción",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 2,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Lista de puertos reservados: RFC 1700\nActualizado en Internet Assigned Numbers Authority: www.iana.org (RFC 3232)\n1- Protocolos de la capa de transporte\n2- UDP\n3- TCP\na. Introducción\nb. Número de secuencia y asentimiento\nc. Mecanismos de retransmisión\nd. Control de flujo\ne. Gestión de la conexión\nf. Control de congestión\n8\nContenido\nUDP\n9\nUDP\n10\n¿Por qué usar UDP si TCP proporciona un servicio de transferencia fiable de datos?\n▪\nCiertas aplicaciones se adaptan mejor a UDP.\n▪\nControl más fino en el nivel de aplicación sobre qué es enviado y cuando.\no UDP empaqueta directamente los datos en un segmento UDP y lo pasa inmediatamente a la \ncapa de red. Por el contrario, TCP implementa un mecanismo de control de congestión. TCP \nreenviará segmentos hasta que no sean asentidos por el destinatario.\no Por ejemplo, algunas aplicaciones en tiempo real pueden tolerar alguna pérdida de datos.\n▪\nNo hay establecimiento de la conexión. TCP establece un protocolo de establecimiento de",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 3,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "o Por ejemplo, algunas aplicaciones en tiempo real pueden tolerar alguna pérdida de datos.\n▪\nNo hay establecimiento de la conexión. TCP establece un protocolo de establecimiento de \nconexión antes de enviar datos. UDP envía datos sin ningún tipo de conexión preliminar. Por tanto, \nUDP no establece ningún retraso en el establecimiento de la conexión.\no Esta es la razón por qué DNS corre sobre UDP y no sobre TCP. DNS sería más lento si fuese \nsobre TCP.\nUDP\n11\n¿Por qué usar UDP si TCP proporciona un servicio de transferencia fiable de datos?\n▪\nNo estado de la conexión. TCP mantiene un estado de la conexión en el sistema final, incluyendo \nbuffers de envío y recepción, parámetros de control de congestión y parámetros del número de \nasentimientos y secuencias. UDP no tiene en cuenta estos parámetros.\no Un servidor en general puede soportar más clientes activos cuando va sobre UDP.\n▪\nPequeña cabecera de paquetes. El segmento TCP tiene 20 bytes de cabecera en cada segmento,",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 4,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "o Un servidor en general puede soportar más clientes activos cuando va sobre UDP.\n▪\nPequeña cabecera de paquetes. El segmento TCP tiene 20 bytes de cabecera en cada segmento, \nmientras que UDP tiene sólo 8 bytes.\n▪\nTambién es posible tener una transferencia fiable de datos cuando usamos UDP, pero este \nmecanismo se tiene que implementar en la capa de aplicación.\nUDP: estructura del segmento\n12\nPuerto origen\nPuerto dest.\n32 bits\nDatos de aplicación\n(payload)\nFormato segmento UDP\nLongitud\nchecksum\nLongitud en bytes del \nsegmento UDP\nDatos para o desde \ncapa de aplicación\nUDP\n13\nUDP checksum\nEl objetivo es detectar si los bits del segmento UDP han sido alterados. Detección de errores.\n▪\nEl remitente trata el contenido del segmento UDP como una secuencia de enteros de 16 bits.\n▪\nChecksum: suma del contenido del segmento (complemento a 1).\n▪\nEl resultado es puesto en el campo checksum.\n▪\nEl receptor computa el segmento recibido.\n▪",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 5,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "▪\nChecksum: suma del contenido del segmento (complemento a 1).\n▪\nEl resultado es puesto en el campo checksum.\n▪\nEl receptor computa el segmento recibido.\n▪\nComprueba si el checksum es igual al valor del campo checksum.\n▪\nNo es igual: error detectado.\n▪\nIgual: No error detectado (No detectado no quiere decir que no haya).\nUDP\n14\nUDP checksum\nTransmitido:            5               6                11\nRecibido:            4               6                11\nNúmero 1\nNúmero 2\nSuma\nSuma calculada en \nel receptor\nSuma calculada en \nel remitente\nUDP\n15\nUDP checksum\nTransmitido:            5               6                11\nRecibido:            4               6                11\nNúmero 1\nNúmero 2\nSuma\nSuma calculada en \nel receptor\nSuma calculada en \nel remitente\n¡ERROR DETECTADO!\n=\n1- Protocolos de la capa de transporte\n2- UDP\n3- TCP\na. Introducción\nb. Número de secuencia y asentimiento\nc. Mecanismos de retransmisión\nd. Control de flujo\ne. Gestión de la conexión\nf. Control de congestión",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 6,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "2- UDP\n3- TCP\na. Introducción\nb. Número de secuencia y asentimiento\nc. Mecanismos de retransmisión\nd. Control de flujo\ne. Gestión de la conexión\nf. Control de congestión\n16\nContenido\nTCP: un poco de historia\n17\nVinton Cerf, Robert Kahn y TCP/IP.\n▪\nEn los años 70, las redes de conmutación de paquetes empezaron a proliferar. ARPAnet era una de \nesas redes. Cada una de esas redes tenían sus propios protocolos.\n▪\nNecesidad de interconectar esas redes.\n▪\nInventaron un protocolo llamado TCP/IP para interconectar esas redes (lo veían como una sola \nentidad).\n▪\nArtículo sobre TCP/IP publicado en Mayo de 1974 en IEEE Transactions on Communications\nTechnology.\n▪\nSeparados después en dos protocolos, TCP e IP.\n▪\nDiseñados antes de la aparición de ordenadores personales, smartphones, tablets, Ethernet, WiFi, \nweb, social media…\nTCP\n18\n▪\nTCP definido en RFCs: 793, 1122, 2018, 5681, 7323\n▪\nConexión punto a punto, un remitente y un receptor.\n▪\nConexión fiable.\n▪",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 7,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "web, social media…\nTCP\n18\n▪\nTCP definido en RFCs: 793, 1122, 2018, 5681, 7323\n▪\nConexión punto a punto, un remitente y un receptor.\n▪\nConexión fiable.\n▪\nProporciona un servicio full-duplex: flujo de datos bidireccional en la misma conexión.\n▪\nOrientado a conexión (intercambio de mensajes de control).\n▪\nAsentimientos.\n▪\nControl de flujo (el remitente no agobia al receptor) y de congestión.\nTCP\n19\nTCP envía \nbuffer\nAplicación\nProceso\nTCP recibe\nbuffer\nAplicación\nProceso\nsocket\nSegmento\nSegmento\nProceso \nescribe datos\nProceso lee \ndatos\n▪\nEl proceso cliente pasa un flujo de datos a través del socket. Los datos están en manos de TCP que \ncorre en el cliente.\n▪\nDe vez en cuando TCP coge trozos de datos del buffer de envío y lo pasa a la capa de red.\n▪\nLa máxima cantidad de datos que puede ser cogida y ubicada en un segmento está limitada por \nMSS (Maximum Segment Size).\n▪\nMSS es típicamente establecido primero determinando la trama más grande de la capa de enlace",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 8,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "MSS (Maximum Segment Size).\n▪\nMSS es típicamente establecido primero determinando la trama más grande de la capa de enlace \nque puede ser enviada por el equipo local (la llamada MTU, Maximum Transmission Unit) y \nasegurando que un segmento TCP (cuando es encapsulado en un datagrama IP) más la longitud \nde la cabecera TCP/IP (típicamente 40 bytes) encaja en una única trama de la capa de enlace. Por \nejemplo, Ethernet tiene una MTU de 1500 bytes. Un valor típico de MSS es 1460 bytes.\nTCP\n20\nTCP envía \nbuffer\nAplicación\nProceso\nTCP recibe\nbuffer\nAplicación\nProceso\nsocket\nSegmento\nSegmento\nProceso \nescribe datos\nProceso lee \ndatos\n▪\nMSS es la cantidad máxima de datos de la capa de aplicación en el segmento (no el segmento \ntotal incluyendo la cabecera).\n▪\nTCP empareja cada trozo de datos con una cabecera TCP, formando los segmentos TCP.\n▪\nLos segmentos son pasados a la capa de red y encapsulados en un datagrama IP.\n▪",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 9,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "total incluyendo la cabecera).\n▪\nTCP empareja cada trozo de datos con una cabecera TCP, formando los segmentos TCP.\n▪\nLos segmentos son pasados a la capa de red y encapsulados en un datagrama IP.\n▪\nCuando TCP recibe un segmento, los datos son ubicados en el buffer de recepción. La aplicación \nlee el flujo de datos de este buffer.\nTCP: estructura del segmento \n21\nPuerto origen\nPuerto destino\nnot\nused\nVentana recepción\nControl de flujo: \nnúmero de bytes que el \nreceptor está dispuesto a \naceptar\nNúmero secuencia\nNúmero secuencia \nsegmento. Cuenta bytes de \ndatos en el flujo (¡No los \nsegmentos!)\nDatos de aplicación\n(longitud variable)\nDatos enviados \npor la \naplicación en el \nsocket TCP\nA\nNúmero asentimiento\nACK: número secuencia \nsiguiente byte esperado; bit \nA: esto es un ACK\nOpciones (longitud variable)\nOpciones TCP\nhead\nlen\nlongitud (de cabecera TCP)\nchecksum\nInternet checksum\nRST, SYN, FIN: gestión de la \nconexión\nF\nS\nR\nUrg data pointer\nP\nU\nC E\nC, E: notificación de \ncongestión",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 10,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "Opciones TCP\nhead\nlen\nlongitud (de cabecera TCP)\nchecksum\nInternet checksum\nRST, SYN, FIN: gestión de la \nconexión\nF\nS\nR\nUrg data pointer\nP\nU\nC E\nC, E: notificación de \ncongestión\n32 bits\n1- Protocolos de la capa de transporte\n2- UDP\n3- TCP\na. Introducción\nb. Número de secuencia y asentimiento\nc. Mecanismos de retransmisión\nd. Control de flujo\ne. Gestión de la conexión\nf. Control de congestión\n22\nContenido\nTCP: número de secuencia y asentimiento\n23\n▪\nUsados para la transferencia fiable de datos.\n▪\nProceso en equipo A quiere enviar un flujo de datos a proceso en equipo B.\n▪\nTCP en el equipo A numerará cada byte en el flujo de datos.\n▪\nEjemplo: Flujo de datos de 500000 bytes. MSS es 1000 bytes y que el primer byte del flujo es 0.\n▪\nTCP construye 500 segmentos. El número de secuencia del primer segmento es 0, el segundo \nsegmento tiene un número de secuencia 1000, el tercero 2000 … Cada número es añadido en el \ncampo de la cabecera.\n0\n1\n1000\n1999\n499999\nDatos segmento 1\nDatos segmento 2",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 11,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "segmento tiene un número de secuencia 1000, el tercero 2000 … Cada número es añadido en el \ncampo de la cabecera.\n0\n1\n1000\n1999\n499999\nDatos segmento 1\nDatos segmento 2\nArchivo\n…\n…\n…\nTCP: número de secuencia y asentimiento\n24\n▪\nEl número de asentimiento que el equipo A pone en el segmento es el número de secuencia del \nsiguiente byte que el equipo A espera del equipo B.\n▪\nEjemplo I: imagina que el equipo A ha recibido todos los bytes numerados del 0 al 535 del equipo \nB y suponemos que está a punto de enviar un segmento al equipo B. Equipo A está esperando a \nsegmento 536 y todos los bytes posteriores. Entonces equipo A pone 536 en el segmento a enviar \na B.\n▪\nEjemplo II: imagina que el equipo A ha recibido todos los bytes numerados del 0 al 535 del equipo \nB y un segmento que contiene los bytes 900 a 1000. Por alguna razón equipo A aún no ha recibido \nlos bytes 536 a 899. Entonces equipo A está esperando a byte 536. El siguiente segmento a B",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 12,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "B y un segmento que contiene los bytes 900 a 1000. Por alguna razón equipo A aún no ha recibido \nlos bytes 536 a 899. Entonces equipo A está esperando a byte 536. El siguiente segmento a B \ncontendrá 536 en el campo número de asentimiento.\n0\n1\n1000\n1999\n499999\nDatos segmento 1\nDatos segmento 2\nArchivo\n…\n…\n…\nEjemplo número de secuencia y asentimiento\n▪\nTelnet (RFC 854), es un protocolo de la capa de aplicación usado para login remoto. Es preferible \nusar el protocolo SSH, ya que los datos en Telnet no están encriptados (incluidos la clave) por lo \nque tiene serios problemas de seguridad.\n▪\nUsaremos Telnet como ejemplo para ver número de secuencia y asentimiento.\nA asiente el recibo \nde eco ‘C’\nB asiente (ACK) el recibo \nde ‘C’. Devuelvo eco, lo \nmismo que envió A: ‘C’\nHost B\nHost A\nEl usuario envía ‘C’\nSeq=42, ACK=79, data = ‘C’\nSeq=79, ACK=43, data = ‘C’\nSeq=43, ACK=80\n25\n1- Protocolos de la capa de transporte\n2- UDP\n3- TCP\na. Introducción\nb. Número de secuencia y asentimiento",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 13,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "El usuario envía ‘C’\nSeq=42, ACK=79, data = ‘C’\nSeq=79, ACK=43, data = ‘C’\nSeq=43, ACK=80\n25\n1- Protocolos de la capa de transporte\n2- UDP\n3- TCP\na. Introducción\nb. Número de secuencia y asentimiento\nc. Mecanismos de retransmisión\nd. Control de flujo\ne. Gestión de la conexión\nf. Control de congestión\n26\nContenido\nTCP: Round Trip Time (RTT) y timeout\n▪\nTCP usa un mecanismo de retransmisión (timeout) para recuperar los segmentos perdidos.\n▪\nLa pregunta es cuál debe ser la longitud del intervalo de timeout.\n▪\nTimeout debe ser mayor que RTT para evitar retransmisiones innecesarias. Pero si es demasiado \nlargo tenemos una reacción lenta.\n27\nReceptor TCP: Generación de asentimientos (RFC \n5681)\nEvento en el receptor\nAcción en el receptor\nLlegada de segmento en orden con número de \nsecuencia esperado. Todos los datos hasta el \nesperado número de secuencia son asentidos.\nACK retrasado. Espera hasta 500 ms para el \nsiguiente segmento. Si no hay siguiente \nsegmento, se envía el ACK.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 14,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "esperado número de secuencia son asentidos.\nACK retrasado. Espera hasta 500 ms para el \nsiguiente segmento. Si no hay siguiente \nsegmento, se envía el ACK.\nLlegada de un segmento en orden con número \nde secuencia esperado. Otro segmento tiene \nun ACK pendiente.\nInmediatamente enviar único ACK acumulativo, \nasintiendo ambos segmentos en orden.\nLlegada de un segmento fuera de orden con un \nnúmero de secuencia más alto del esperado. \nDetección de falta de datos.\nInmediatamente enviar ACK duplicado, \nindicando el número de secuencia del próximo \nbyte esperado.\nLlegada de un segmento que parcialmente o \ncompletamente llena el hueco en los datos \nrecibidos.\nInmediatamente enviar ACK, proporcionando el \ncomienzo del segmento al inicio del hueco.\nNota: Un ACK duplicado es aquel que asiente un segmento del que el \nreceptor ya ha recibido un asentimiento anterior.\n28\nTCP: escenarios de retransmisión\nACK perdido\nHost B\nHost A\nSeq=92, 8 bytes de datos\nSeq=92, 8 bytes de datos\nACK=100\nX\nACK=100",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 15,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "receptor ya ha recibido un asentimiento anterior.\n28\nTCP: escenarios de retransmisión\nACK perdido\nHost B\nHost A\nSeq=92, 8 bytes de datos\nSeq=92, 8 bytes de datos\nACK=100\nX\nACK=100\ntimeout\nTimeout prematuro\nHost B\nHost A\nSeq=92, 8 bytes de datos\nACK=120\ntimeout\nACK=100\nACK=120\nSeq=92, 8 bytes de datos\nSeq=100, 20 bytes de datos\n29\nTCP: escenarios de retransmisión\nACK acumulativo protege por una \npérdida temprana del ACK. Evita la \nretransmisión del segmento anterior.\nHost B\nHost A\nSeq=92, 8 bytes de datos\nSeq=120,  15 bytes de datos\nSeq=100, 20 bytes de datos\nX\nACK=100\nACK=120\nSeq=92 timeout interval\n30\nTCP: retransmisión rápida\nX\nEl recibo de 3 ACKs duplicados indica 3 \nsegmentos  recibidos después de un \nsegmento perdido. Segmento perdido \nes probable, por tanto, se retransmite.\nSi el remitente envía 3 ACKs para los mismos datos, se \nreenvía el segmento no asentido con el número de \nsecuencia menor (Probablemente ese segmento no \nasentido se ha perdido así que no esperamos al",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 16,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "reenvía el segmento no asentido con el número de \nsecuencia menor (Probablemente ese segmento no \nasentido se ha perdido así que no esperamos al \ntimeout para retransmitir).\n31\n1- Protocolos de la capa de transporte\n2- UDP\n3- TCP\na. Introducción\nb. Número de secuencia y asentimiento\nc. Mecanismos de retransmisión\nd. Control de flujo\ne. Gestión de la conexión\nf. Control de congestión\n32\nContenido\nTCP: Control de flujo\n33\n¿Qué ocurre si la capa de red entrega los datos más \nrápido que la lectura de los datos por la capa de \naplicación?\nTCP: Control de flujo\n¿Qué ocurre si la capa de red entrega los datos más \nrápido que la lectura de los datos por la capa de \naplicación?\nTCP socket\nBuffer recepción\ncódigo\nTCP\ncódigo\nIP\nTorre de protocolos del receptor\nCapa de red entregando \ndatagramas IP en el \nbuffer del socket TCP\nDesde remitente\nAplicación cogiendo datos del \nbuffer de recepción del socket\n34\nTCP: Control de flujo\nventana recep.\nControl de flujo: número de",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 17,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "datagramas IP en el \nbuffer del socket TCP\nDesde remitente\nAplicación cogiendo datos del \nbuffer de recepción del socket\n34\nTCP: Control de flujo\nventana recep.\nControl de flujo: número de \nbytes que el receptor está \ndispuesto a aceptar\nEl receptor controla al remitente, de forma \nque el remitente no satura el buffer del \nreceptor transmitiendo demasiado rápido.\nTCP socket\nBuffer recepción\ncódigo\nTCP\ncódigo\nIP\nTorre de protocolos del receptor\nCapa de red entregando \ndatagramas IP en el \nbuffer del socket TCP\nDesde remitente\nAplicación cogiendo datos del \nbuffer de recepción del socket\n35\n¿Qué ocurre si la capa de red entrega los datos más \nrápido que la lectura de los datos por la capa de \naplicación?\n1- Protocolos de la capa de transporte\n2- UDP\n3- TCP\na. Introducción\nb. Número de secuencia y asentimiento\nc. Mecanismos de retransmisión\nd. Control de flujo\ne. Gestión de la conexión\nf. Control de congestión\n36\nContenido\nTCP: gestión de la conexión\n37\nEstado conexión: ESTAB",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 18,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "c. Mecanismos de retransmisión\nd. Control de flujo\ne. Gestión de la conexión\nf. Control de congestión\n36\nContenido\nTCP: gestión de la conexión\n37\nEstado conexión: ESTAB\nVariables conexión:\nseq # client-to-server\n         server-to-client\nTamaño rcvBuffer\n   en cliente, servidor\n           \nAplicación\nRed\nEstado conexión: ESTAB\nVariables conexión:\nseq # client-to-server\n          server-to-client\nTamaño rcvBuffer\n   en servidor, cliente\n           \nAplicación\nRed\nSocket clientSocket =   \n  newSocket(\"hostname\",\"port number\");\nSocket connectionSocket = \nwelcomeSocket.accept();\n▪\nAntes de intercambiar datos, remitente/receptor “handshake”.\n▪\nSe ponen de acuerdo para establecer conexión (cada uno conoce la disponibilidad del otro para \nestablecer conexión).\n▪\nAcuerdo en parámetros de la conexión (números de secuencia iniciales, …).\nTCP: establecimiento de la conexión\n38\nSYNbit=1, Seq=x\nnúmero secuencia inicial, x\nenviar mensaje TCP SYN\nESTAB\nSYNbit=1, Seq=y\nACKbit=1; ACKnum=x+1",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 19,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "TCP: establecimiento de la conexión\n38\nSYNbit=1, Seq=x\nnúmero secuencia inicial, x\nenviar mensaje TCP SYN\nESTAB\nSYNbit=1, Seq=y\nACKbit=1; ACKnum=x+1\nnúmero secuencia inicial, y\nenviar mensaje\nTCP SYNACK\nasentir SYN\nACKbit=1, ACKnum=y+1\nrecibido SYNACK(x) \nindica servidor está activo;\nenviar ACK para SYNACK;\neste segmento puede contener datos\nde cliente a servidor\nrecibido ACK(y) \nindica cliente está activo\nSYN SENT\nESTAB\nSYN RCVD\nEstado cliente\nLISTEN\nEstado servidor\nLISTEN\nclientSocket = socket(AF_INET, SOCK_STREAM)\nserverSocket = socket(AF_INET,SOCK_STREAM)\nserverSocket.bind((‘’,serverPort))\nserverSocket.listen(1)\nconnectionSocket, addr = serverSocket.accept()\nclientSocket.connect((serverName,serverPort))\n3-way handshake\nTCP: cerrando la conexión\n39\n▪\nEl cliente y el servidor cierran su lado de la conexión (envían segmento TCP con bit FIN \nigual a 1).\n▪\nResponden al mensaje FIN con un ACK (al recibir FIN, ACK puede ser combinado con su \npropio mensaje FIN).\n▪",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 20,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "igual a 1).\n▪\nResponden al mensaje FIN con un ACK (al recibir FIN, ACK puede ser combinado con su \npropio mensaje FIN).\n▪\nIntercambios simultáneos de FIN pueden ser manejados.\n1- Protocolos de la capa de transporte\n2- UDP\n3- TCP\na. Introducción\nb. Número de secuencia y asentimiento\nc. Mecanismos de retransmisión\nd. Control de flujo\ne. Gestión de la conexión\nf. Control de congestión\n40\nContenido\nTCP: Control de congestión\n▪\nMuchas fuentes enviando datos demasiado \nrápido de forma que la red no puede manejar.\n▪\nConsecuencias:\no Largos retrasos (buffers en las colas de los \nrouters).\no Pérdida de paquetes.\n▪\nControl de flujo y control de congestión son \ndiferentes.\nControl de congestión:\nmuchos remitentes enviando \ndemasiado rápido\nControl de flujo: un \nremitente enviando \ndemasiado rápido para un \nreceptor\n41\nTCP: Control de congestión\n▪\nEl enfoque de TCP es limitar la tasa de envío de cada remitente en función de la congestión de red \npercibida.\n▪",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 21,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "remitente enviando \ndemasiado rápido para un \nreceptor\n41\nTCP: Control de congestión\n▪\nEl enfoque de TCP es limitar la tasa de envío de cada remitente en función de la congestión de red \npercibida.\n▪\nSi el remitente TCP percibe que hay poca congestión en la ruta entre su destinatario y él, \nentonces incrementa su tasa de envío.\n▪\nSi el remitente TCP percibe que hay congestión en su ruta, entonces reduce su tasa de envío.\n▪\nCon este enfoque aparecen tres preguntas:\no ¿Cómo el remitente TCP limita la tasa de transmisión a su destino?\no ¿Cómo el remitente TCP percibe que hay congestión?\no ¿Qué algoritmo debe usar el remitente para cambiar su tasa de envío en función de la \ncongestión percibida en la conexión?\n42\nTCP: Control de congestión\n▪\n¿Cómo el remitente TCP limita la tasa de transmisión a su destino?\no Mediante la ventana de congestión\n▪\n¿Cómo el remitente TCP percibe que hay congestión?\no Pérdida por timeout. No llega ningún ACK en tiempo esperado.",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 22,
+            "rol": "ambos"
+        }
+    },
+    {
+        "page_content": "o Mediante la ventana de congestión\n▪\n¿Cómo el remitente TCP percibe que hay congestión?\no Pérdida por timeout. No llega ningún ACK en tiempo esperado.\no ACKs duplicados. El receptor sigue pidiendo el mismo paquete. El paquete se perdió, pero la \nred funciona\n▪\n¿Qué algoritmo debe usar el remitente para cambiar su tasa de envío en función de la congestión \npercibida en la conexión?\no Algoritmo AIMD (Additive Increase Multiplicative Decrease)\n43\n¡GRACIAS!\n44",
+        "metadata": {
+            "course_id": "software_comunicaciones",
+            "source": "TEMA3_SOFTWARE_COMUNICACIONES.pdf",
+            "chunk_id": 23,
+            "rol": "ambos"
+        }
+    }
+]
