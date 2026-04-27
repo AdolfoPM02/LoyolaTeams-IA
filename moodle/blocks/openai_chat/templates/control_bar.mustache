@@ -1,0 +1,72 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+}}
+{{!
+    @template block_openai_chat/control_bar
+}}
+
+{{^is_edit_mode}}
+    {{#logging_enabled}}
+        <div title='{{#str}}loggingenabled, block_openai_chat{{/str}}' class='recording'></div>
+    {{/logging_enabled}}
+    <button 
+        class='openai_input_popout_btn btn btn-tertiary p-0 position-absolute top-0 end-0 z-2 mt-3 mr-3' 
+        aria-label="{{#str}}popout, block_openai_chat {{/str}}" 
+        title="{{#str}}popout, block_openai_chat {{/str}}" 
+        id="popout"
+    >
+        <i class="fa fa-arrow-up-right-from-square" aria-hidden="true"></i>
+    </button>
+{{/is_edit_mode}}
+
+<div class="d-flex gap-2 w-100 p-2 rounded" id="control_bar" style="background-color: #f8f9fa; border: 1px solid #dee2e6;">
+    <div class="d-flex w-100">
+        <textarea 
+            class="w-100 form-control"
+            style="border-radius: 20px 0 0 20px; border: 2px solid #007bff; resize: none;"
+            aria-label="{{#str}}askaquestion, block_openai_chat{{/str}}" 
+            rows=1 
+            id="openai_input" 
+            placeholder="Pregúntale a tu asistente universitario..." 
+            type="text" 
+            name="message"
+        ></textarea>
+        <button 
+            class='btn btn-success' 
+            style="border-radius: 0 20px 20px 0; padding-left: 20px; padding-right: 20px;"
+            title="Enviar mensaje" 
+            id="go"
+        >
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+        </button>
+    </div>
+    <button 
+        class='btn btn-outline-danger' 
+        style="border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;"
+        title="Borrar chat" 
+        id="refresh"
+    >
+        <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+</div>
+
+<style>
+    {{#show_labels}}
+    .openai_message:before {
+        display: none;
+    }
+    .openai_message {
+        margin-bottom: 0.5rem;
+    }
+    {{/show_labels}}
+    .openai_message.user:before {
+        content: "{{user_name}}";
+        color: #007bff;
+        font-weight: bold;
+    }
+    .openai_message.bot:before {
+        content: "🤖 Loyola IA";
+        color: #28a745;
+        font-weight: bold;
+    }
+</style>
