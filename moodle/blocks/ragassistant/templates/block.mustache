@@ -1,0 +1,55 @@
+{{!
+    Template: block_ragassistant/block
+    Context:
+        - courseid (int)
+        - canindex (bool)
+}}
+<div class="block-ragassistant" data-region="ragassistant" data-courseid="{{courseid}}">
+
+    {{! Área de pregunta }}
+    <div class="ragassistant-question">
+        <textarea
+            class="form-control"
+            data-action="question"
+            placeholder="{{#str}}placeholder, block_ragassistant{{/str}}"
+            rows="3"
+            aria-label="{{#str}}placeholder, block_ragassistant{{/str}}"></textarea>
+    </div>
+
+    <div class="ragassistant-actions mt-2 d-flex align-items-center gap-2">
+        <button class="btn btn-primary btn-sm" data-action="ask">
+            {{#str}}askbutton, block_ragassistant{{/str}}
+        </button>
+        <span class="ragassistant-spinner spinner-border spinner-border-sm text-primary d-none"
+              role="status" aria-hidden="true"></span>
+    </div>
+
+    {{! Área de respuesta }}
+    <div class="ragassistant-answer mt-3 d-none" data-region="answer-wrap">
+        <div class="ragassistant-answer-text" data-region="answer"></div>
+        <div class="ragassistant-confidence text-muted small mt-1 d-none" data-region="confidence"></div>
+    </div>
+
+    {{! Fuentes }}
+    <div class="ragassistant-sources mt-2 d-none" data-region="sources-wrap">
+        <strong class="small">{{#str}}sources, block_ragassistant{{/str}}</strong>
+        <ul class="list-unstyled small mt-1" data-region="sources"></ul>
+    </div>
+
+    {{! Advertencias }}
+    <div class="ragassistant-warnings mt-2 d-none" data-region="warnings-wrap">
+        <ul class="list-unstyled small text-warning" data-region="warnings"></ul>
+    </div>
+
+    {{! Panel de indexación (solo profesores) }}
+    {{#canindex}}
+    <hr class="my-3">
+    <div class="ragassistant-indexing">
+        <button class="btn btn-outline-secondary btn-sm" data-action="index-course">
+            {{#str}}indexbutton, block_ragassistant{{/str}}
+        </button>
+        <div class="ragassistant-index-status small mt-1" data-region="index-status"></div>
+    </div>
+    {{/canindex}}
+
+</div>
