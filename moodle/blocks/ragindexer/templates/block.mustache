@@ -1,0 +1,25 @@
+{{!
+    Template: block_ragindexer/block
+    Context:
+        - courseid (int)
+}}
+<div class="block-ragindexer" data-region="ragindexer" data-courseid="{{courseid}}">
+
+    {{! Aviso: el backend de indexación puede no estar disponible todavía }}
+    <div class="ragindexer-notice alert alert-info small py-2" role="status">
+        {{#str}}backendpending, block_ragindexer{{/str}}
+    </div>
+
+    {{! Acción docente de indexación }}
+    <div class="ragindexer-actions mt-2 d-flex align-items-center gap-2">
+        <button class="btn btn-outline-secondary btn-sm" data-action="index-course">
+            {{#str}}indexbutton, block_ragindexer{{/str}}
+        </button>
+        <span class="ragindexer-spinner spinner-border spinner-border-sm text-secondary d-none"
+              role="status" aria-hidden="true"></span>
+    </div>
+
+    {{! Estado de la indexación }}
+    <div class="ragindexer-status small mt-2" data-region="index-status"></div>
+
+</div>

@@ -14,8 +14,6 @@ define(['core/ajax', 'core/notification', 'core/str'], function(Ajax, Notificati
         const sourcesList = root.querySelector('[data-region="sources"]');
         const warnWrap    = root.querySelector('[data-region="warnings-wrap"]');
         const warnList    = root.querySelector('[data-region="warnings"]');
-        const indexBtn    = root.querySelector('[data-action="index-course"]');
-        const indexStatus = root.querySelector('[data-region="index-status"]');
 
         askBtn.addEventListener('click', function() {
             const question = input.value.trim();
@@ -44,31 +42,6 @@ define(['core/ajax', 'core/notification', 'core/str'], function(Ajax, Notificati
         input.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); askBtn.click(); }
         });
-
-        if (indexBtn) {
-            indexBtn.addEventListener('click', function() {
-                indexBtn.disabled = true;
-                Str.get_string('indexing', 'block_ragassistant').then(function(msg) {
-                    indexStatus.textContent = msg;
-                });
-                Ajax.call([{
-                    methodname: 'block_ragassistant_index_course',
-                    args: { courseid: config.courseid, forcereindex: false }
-                }])[0].then(function(response) {
-                    var key = response.status === 'error' ? 'indexerror' : 'indexok';
-                    return Str.get_string(key, 'block_ragassistant').then(function(msg) {
-                        indexStatus.textContent = msg;
-                        indexBtn.disabled = false;
-                    });
-                }).catch(function(error) {
-                    Str.get_string('indexerror', 'block_ragassistant').then(function(msg) {
-                        indexStatus.textContent = msg;
-                        indexBtn.disabled = false;
-                    });
-                    Notification.exception(error);
-                });
-            });
-        }
 
         function setLoading(active) {
             askBtn.disabled = active;

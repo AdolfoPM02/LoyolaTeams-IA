@@ -66,14 +66,6 @@ if ($ADMIN->fulltree) {
         0
     ));
 
-    // Permitir indexación por profesores
-    $settings->add(new admin_setting_configcheckbox(
-        'block_ragassistant/allowindexing',
-        get_string('allowindexing', 'block_ragassistant'),
-        get_string('allowindexing_desc', 'block_ragassistant'),
-        1
-    ));
-
     // Modo debug
     $settings->add(new admin_setting_configcheckbox(
         'block_ragassistant/debugmode',

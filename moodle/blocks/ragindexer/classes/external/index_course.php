@@ -1,5 +1,5 @@
 <?php
-namespace block_ragassistant\external;
+namespace block_ragindexer\external;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -9,7 +9,7 @@ use external_api;
 use external_function_parameters;
 use external_value;
 use external_single_structure;
-use block_ragassistant\service\rag_client;
+use block_ragindexer\service\rag_client;
 
 class index_course extends external_api {
 
@@ -30,10 +30,10 @@ class index_course extends external_api {
 
         $context = \context_course::instance($params['courseid']);
         self::validate_context($context);
-        require_capability('block/ragassistant:indexcourse', $context);
+        require_capability('block/ragindexer:indexcourse', $context);
 
         if ($params['forcereindex']) {
-            require_capability('block/ragassistant:forcereindex', $context);
+            require_capability('block/ragindexer:forcereindex', $context);
         }
 
         $payload = [

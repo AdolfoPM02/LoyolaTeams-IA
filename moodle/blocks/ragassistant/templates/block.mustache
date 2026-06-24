@@ -2,7 +2,6 @@
     Template: block_ragassistant/block
     Context:
         - courseid (int)
-        - canindex (bool)
 }}
 <div class="block-ragassistant" data-region="ragassistant" data-courseid="{{courseid}}">
 
@@ -40,16 +39,5 @@
     <div class="ragassistant-warnings mt-2 d-none" data-region="warnings-wrap">
         <ul class="list-unstyled small text-warning" data-region="warnings"></ul>
     </div>
-
-    {{! Panel de indexación (solo profesores) }}
-    {{#canindex}}
-    <hr class="my-3">
-    <div class="ragassistant-indexing">
-        <button class="btn btn-outline-secondary btn-sm" data-action="index-course">
-            {{#str}}indexbutton, block_ragassistant{{/str}}
-        </button>
-        <div class="ragassistant-index-status small mt-1" data-region="index-status"></div>
-    </div>
-    {{/canindex}}
 
 </div>

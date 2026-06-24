@@ -1,16 +1,16 @@
 <?php
 defined('MOODLE_INTERNAL') || die();
 
-class block_ragassistant extends block_base {
+class block_ragindexer extends block_base {
 
     public function init() {
-        $this->title = get_string('pluginname', 'block_ragassistant');
+        $this->title = get_string('pluginname', 'block_ragindexer');
     }
 
     public function applicable_formats() {
         return [
             'course-view' => true,
-            'mod'         => true,
+            'mod'         => false,
             'site'        => false,
             'my'          => false,
         ];
@@ -21,7 +21,7 @@ class block_ragassistant extends block_base {
     }
 
     public function get_content() {
-        global $COURSE, $USER, $PAGE;
+        global $COURSE, $PAGE;
 
         if ($this->content !== null) {
             return $this->content;
@@ -29,13 +29,14 @@ class block_ragassistant extends block_base {
 
         $context = context_course::instance($COURSE->id);
 
-        if (!has_capability('block/ragassistant:ask', $context)) {
+        // Solo profesorado/gestores con la capacidad de indexar ven el bloque.
+        if (!has_capability('block/ragindexer:indexcourse', $context)) {
             $this->content = new stdClass();
             $this->content->text = '';
             return $this->content;
         }
 
-        $PAGE->requires->js_call_amd('block_ragassistant/chat', 'init', [[
+        $PAGE->requires->js_call_amd('block_ragindexer/indexer', 'init', [[
             'courseid' => (int) $COURSE->id,
         ]]);
 
@@ -45,7 +46,7 @@ class block_ragassistant extends block_base {
 
         $this->content = new stdClass();
         $this->content->text = $PAGE->get_renderer('core')->render_from_template(
-            'block_ragassistant/block',
+            'block_ragindexer/block',
             $templatedata
         );
 

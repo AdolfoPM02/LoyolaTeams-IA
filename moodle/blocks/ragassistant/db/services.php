@@ -11,13 +11,4 @@ $functions = [
         'ajax'        => true,
         'capabilities'=> 'block/ragassistant:ask',
     ],
-
-    'block_ragassistant_index_course' => [
-        'classname'   => 'block_ragassistant\external\index_course',
-        'methodname'  => 'execute',
-        'description' => 'Request course indexing in the RAG backend',
-        'type'        => 'write',
-        'ajax'        => true,
-        'capabilities'=> 'block/ragassistant:indexcourse',
-    ],
 ];

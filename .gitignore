@@ -1,0 +1,10 @@
+# Entornos virtuales de Python (no deben versionarse dentro del repo Moodle)
+**/venv/
+**/.venv/
+
+# Caches de Python
+**/__pycache__/
+*.pyc
+
+# Artefactos locales
+get-docker.sh
