@@ -13,8 +13,6 @@ $string['apikey']                = 'Token de autenticación';
 $string['apikey_desc']           = 'Token Bearer para autenticar las peticiones a FastAPI.';
 $string['timeout']               = 'Tiempo de espera (segundos)';
 $string['timeout_desc']          = 'Segundos máximos de espera para la respuesta de FastAPI.';
-$string['topk']                  = 'Número de fragmentos (top_k)';
-$string['topk_desc']             = 'Número de fragmentos de documentos que se recuperan para cada consulta.';
 $string['showsources']           = 'Mostrar fuentes';
 $string['showsources_desc']      = 'Muestra las fuentes documentales junto a la respuesta.';
 $string['showconfidence']        = 'Mostrar confianza';
@@ -29,7 +27,9 @@ $string['thinking']              = 'Consultando los materiales del curso...';
 $string['sources']               = 'Fuentes';
 $string['page']                  = 'página';
 $string['errorapi']              = 'Error al conectar con el asistente. Inténtalo de nuevo.';
-$string['nocontext']             = 'No he encontrado información suficiente en los materiales del curso para responder con seguridad.';
+$string['errordegraded']         = 'El asistente no está disponible temporalmente. Inténtalo más tarde.';
+$string['errorinvalid']          = 'No se ha podido procesar la consulta. Reformula tu pregunta.';
+$string['nocontext']             = 'No he encontrado evidencia suficiente en los materiales disponibles del curso para responder con fiabilidad.';
 
 // Errores internos
 $string['invalidapiresponse']    = 'Respuesta inválida de la API RAG.';

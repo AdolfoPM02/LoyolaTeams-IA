@@ -15,6 +15,8 @@ define(['core/ajax', 'core/notification', 'core/str'], function(Ajax, Notificati
         const warnWrap    = root.querySelector('[data-region="warnings-wrap"]');
         const warnList    = root.querySelector('[data-region="warnings"]');
 
+        if (!input || !askBtn) { return; }
+
         askBtn.addEventListener('click', function() {
             const question = input.value.trim();
             if (!question) { return; }
@@ -24,17 +26,14 @@ define(['core/ajax', 'core/notification', 'core/str'], function(Ajax, Notificati
 
             Ajax.call([{
                 methodname: 'block_ragassistant_ask',
-                args: { courseid: config.courseid, question: question, cmid: config.cmid || 0 }
+                args: {courseid: config.courseid, question: question, cmid: config.cmid || 0}
             }])[0].then(function(response) {
-                renderAnswer(response);
+                renderResponse(response);
                 setLoading(false);
                 return response;
             }).catch(function(error) {
                 setLoading(false);
-                Str.get_string('errorapi', 'block_ragassistant').then(function(msg) {
-                    answerWrap.classList.remove('d-none');
-                    answerEl.textContent = msg;
-                });
+                showStatusMessage('errorapi');
                 Notification.exception(error);
             });
         });
@@ -47,10 +46,8 @@ define(['core/ajax', 'core/notification', 'core/str'], function(Ajax, Notificati
             askBtn.disabled = active;
             if (active) {
                 spinner.classList.remove('d-none');
-                Str.get_string('thinking', 'block_ragassistant').then(function(msg) {
-                    answerWrap.classList.remove('d-none');
-                    answerEl.textContent = msg;
-                });
+                setText(answerEl, 'thinking');
+                answerWrap.classList.remove('d-none');
             } else {
                 spinner.classList.add('d-none');
             }
@@ -62,38 +59,98 @@ define(['core/ajax', 'core/notification', 'core/str'], function(Ajax, Notificati
             });
             if (sourcesList) { sourcesList.innerHTML = ''; }
             if (warnList)    { warnList.innerHTML = ''; }
-            if (confEl)      { confEl.textContent = ''; }
+            if (confEl)      { confEl.textContent = ''; confEl.classList.add('d-none'); }
         }
 
-        function renderAnswer(response) {
+        /**
+         * Renderiza según el status del contrato:
+         * answered | abstained | error | invalid_request | degraded.
+         */
+        function renderResponse(response) {
+            const status = response.status || 'error';
+
+            if (status === 'abstained') {
+                answerWrap.classList.remove('d-none');
+                if (response.answer) {
+                    answerEl.textContent = response.answer;
+                } else {
+                    setText(answerEl, 'nocontext');
+                }
+                renderWarnings(response.warnings);
+                return;
+            }
+
+            if (status !== 'answered') {
+                var key = status === 'degraded' ? 'errordegraded'
+                    : (status === 'invalid_request' ? 'errorinvalid' : 'errorapi');
+                showStatusMessage(key);
+                renderWarnings(response.warnings);
+                return;
+            }
+
+            // status === 'answered'
             answerWrap.classList.remove('d-none');
             answerEl.textContent = response.answer || '';
 
-            if (response.confidence && confEl) {
-                confEl.textContent = 'Confianza: ' + Math.round(response.confidence * 100) + '%';
+            if (typeof response.best_score === 'number' && response.best_score > 0 && confEl) {
+                confEl.textContent = 'Confianza: ' + Math.round(response.best_score * 100) + '%';
                 confEl.classList.remove('d-none');
             }
 
-            if (response.sources && response.sources.length > 0 && sourcesWrap) {
-                sourcesWrap.classList.remove('d-none');
-                sourcesList.innerHTML = response.sources.map(function(src) {
-                    var label = src.title || 'Fuente';
-                    if (src.page)  { label += ' — pág. ' + src.page; }
-                    if (src.score) { label += ' (' + Math.round(src.score * 100) + '%)'; }
-                    return src.url
-                        ? '<li><a href="' + src.url + '" target="_blank">' + label + '</a></li>'
-                        : '<li>' + label + '</li>';
-                }).join('');
-            }
+            renderSources(response.sources);
+            renderWarnings(response.warnings);
+        }
 
-            if (response.warnings && response.warnings.length > 0 && warnWrap) {
-                warnWrap.classList.remove('d-none');
-                warnList.innerHTML = response.warnings.map(function(w) {
-                    return '<li>⚠ ' + w + '</li>';
-                }).join('');
-            }
+        function renderSources(sources) {
+            if (!sources || !sources.length || !sourcesWrap) { return; }
+            sourcesWrap.classList.remove('d-none');
+            sourcesList.innerHTML = '';
+            sources.forEach(function(src) {
+                var label = src.document_title || src.chunk_id || 'Fuente';
+                if (src.section) { label += ' — ' + src.section; }
+                if (src.page)    { label += ' (pág. ' + src.page + ')'; }
+
+                var li = document.createElement('li');
+                if (src.source_uri && /^https?:\/\//i.test(src.source_uri)) {
+                    var a = document.createElement('a');
+                    a.href = src.source_uri;
+                    a.target = '_blank';
+                    a.rel = 'noopener noreferrer';
+                    a.textContent = label;
+                    li.appendChild(a);
+                } else {
+                    li.textContent = label;
+                }
+                sourcesList.appendChild(li);
+            });
+        }
+
+        function renderWarnings(warnings) {
+            if (!warnings || !warnings.length || !warnWrap) { return; }
+            warnWrap.classList.remove('d-none');
+            warnList.innerHTML = '';
+            warnings.forEach(function(w) {
+                var li = document.createElement('li');
+                li.textContent = '⚠ ' + w;
+                warnList.appendChild(li);
+            });
+        }
+
+        function showStatusMessage(strkey) {
+            answerWrap.classList.remove('d-none');
+            setText(answerEl, strkey);
+        }
+
+        function setText(el, strkey) {
+            if (!el) { return; }
+            Str.get_string(strkey, 'block_ragassistant').then(function(msg) {
+                el.textContent = msg;
+                return msg;
+            }).catch(function() {
+                return null;
+            });
         }
     };
 
-    return { init: init };
+    return {init: init};
 });

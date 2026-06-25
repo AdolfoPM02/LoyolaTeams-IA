@@ -1,106 +1,133 @@
 """
 mock_fastapi.py
 Servidor FastAPI de prueba para block_ragassistant.
-Simula respuestas del backend RAG real.
+
+Replica el CONTRATO CANÓNICO de la API RAG (POST /ask):
+  - Request:  { "question": str, "context": { course_id, role, ... } }  (extra="forbid")
+  - Response: { status, answer, sources[], metadata{}, warnings[], latency_ms, request_id }
+
+NO implementa RAG real: solo simula respuestas para probar el bloque Moodle
+de extremo a extremo sin levantar Ollama/ChromaDB.
 
 Uso:
     pip install fastapi uvicorn
     python mock_fastapi.py
-    Escucha en http://localhost:8000
+    # Escucha en http://0.0.0.0:8000  (host.docker.internal:8000 desde Moodle/Docker)
 """
 
-from fastapi import FastAPI, Header, HTTPException
-from pydantic import BaseModel
-from typing import Optional, List
+from __future__ import annotations
+
 import time
 import uuid
+from typing import Optional
 
-app = FastAPI(title="RAG Assistant Mock", version="1.0.0")
+from fastapi import FastAPI, Header
+from pydantic import BaseModel, ConfigDict, Field
 
-# ── Modelos de entrada ──────────────────────────────────────────────────────
+app = FastAPI(title="RAG Assistant Mock", version="2.0.0")
+
+_ALLOWED_ROLES = {"student", "teacher", "editingteacher", "guest", "admin"}
+
+
+# ── Modelos de entrada (espejo del contrato canónico estricto) ───────────────
+
+class QueryContextPayload(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    course_id: str = Field(..., min_length=1)
+    section_id: Optional[str] = None
+    activity_id: Optional[str] = None
+    resource_id: Optional[str] = None
+    role: str = Field(..., min_length=1)
+    language: Optional[str] = None
+    visibility: Optional[str] = None
+
 
 class AskRequest(BaseModel):
-    question: str
-    course_id: int
-    user_id: int
-    context_id: Optional[int] = None
-    cm_id: Optional[int] = None
-    section_id: Optional[int] = None
-    roles: List[str] = []
-    lang: str = "es"
-    top_k: int = 5
+    model_config = ConfigDict(extra="forbid")
 
-class IndexRequest(BaseModel):
-    course_id: int
-    requested_by: int
-    mode: str = "incremental"
-    force_reindex: bool = False
+    question: str = Field(..., min_length=1)
+    context: QueryContextPayload
 
-# ── Endpoints ───────────────────────────────────────────────────────────────
+
+# ── Endpoints ────────────────────────────────────────────────────────────────
 
 @app.post("/ask")
 async def ask(body: AskRequest, authorization: Optional[str] = Header(None)):
-    """Simula una respuesta RAG con fuentes."""
+    """Simula una respuesta RAG conforme al contrato AskResponse."""
     start = time.time()
+    request_id = uuid.uuid4().hex
+    course_id = body.context.course_id
 
-    # Simula contexto insuficiente si la pregunta es muy corta
+    # Abstención simulada para preguntas demasiado cortas.
     if len(body.question) < 5:
         return {
-            "answer": "No he encontrado información suficiente en los materiales del curso para responder con seguridad.",
+            "status": "abstained",
+            "answer": (
+                "No he encontrado evidencia suficiente en los materiales "
+                "disponibles del curso para responder con fiabilidad."
+            ),
             "sources": [],
-            "status": "insufficient_context",
-            "confidence": 0.18,
+            "metadata": {
+                "abstained": True,
+                "abstention_reason": "low_score",
+                "best_score": 0.18,
+                "citation_verified": True,
+                "citation_issues": [],
+            },
+            "warnings": ["No relevant chunks found"],
             "latency_ms": int((time.time() - start) * 1000),
-            "warnings": ["No relevant chunks found"]
+            "request_id": request_id,
         }
 
     return {
-        "answer": f"[MOCK] Respuesta simulada para el curso {body.course_id}:\n\n"
-                  f"Según los materiales disponibles, '{body.question}' tiene relación con "
-                  f"el Tema 3 (páginas 12-15) y la Guía Docente. Este es un servidor de "
-                  f"prueba — conecta la URL real de tu compañero en la configuración del bloque.",
+        "status": "answered",
+        "answer": (
+            f"[MOCK] Respuesta simulada para el curso {course_id}:\n\n"
+            f"Según los materiales disponibles, '{body.question}' tiene relación "
+            f"con el Tema 3 y la Guía Docente. Servidor de prueba: conecta la URL "
+            f"real de FastAPI en la configuración del bloque."
+        ),
         "sources": [
             {
-                "title": "Tema_3.pdf",
-                "course_id": body.course_id,
-                "cm_id": body.cm_id or 0,
+                "chunk_id": "tema3-0012",
+                "source_uri": "http://host.docker.internal:8000/mod/resource/view.php?id=1",
+                "document_title": "Tema_3.pdf",
+                "section": "Tema 3",
                 "page": 12,
-                "score": 0.87,
-                "url": f"http://localhost:8000/mod/resource/view.php?id={body.cm_id or 1}"
             },
             {
-                "title": "Guia_Docente.pdf",
-                "course_id": body.course_id,
-                "cm_id": None,
+                "chunk_id": "guia-0003",
+                "source_uri": "course://guia-docente",
+                "document_title": "Guia_Docente.pdf",
+                "section": None,
                 "page": 3,
-                "score": 0.74,
-                "url": None
-            }
+            },
         ],
-        "status": "ok",
-        "confidence": 0.82,
+        "metadata": {
+            "abstained": False,
+            "abstention_reason": None,
+            "best_score": 0.82,
+            "citation_verified": True,
+            "citation_issues": [],
+        },
+        "warnings": [],
         "latency_ms": int((time.time() - start) * 1000) + 120,
-        "warnings": []
-    }
-
-
-@app.post("/index-course")
-async def index_course(body: IndexRequest, authorization: Optional[str] = Header(None)):
-    """Simula el inicio de un job de indexación."""
-    job_id = str(uuid.uuid4())[:8]
-    return {
-        "job_id": job_id,
-        "status": "queued",
-        "message": f"Indexación {'completa' if body.force_reindex else 'incremental'} "
-                   f"del curso {body.course_id} en cola. Job: {job_id}"
+        "request_id": request_id,
     }
 
 
 @app.get("/health")
 async def health():
-    return {"status": "ok", "service": "RAG Assistant Mock"}
+    return {
+        "status": "ok",
+        "service": "rag-assistant-mock",
+        "version": "2.0.0",
+        "environment": "mock",
+    }
 
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8001)
+
+    uvicorn.run(app, host="0.0.0.0", port=8000)

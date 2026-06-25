@@ -35,15 +35,6 @@ if ($ADMIN->fulltree) {
         PARAM_INT
     ));
 
-    // Top K
-    $settings->add(new admin_setting_configtext(
-        'block_ragassistant/topk',
-        get_string('topk', 'block_ragassistant'),
-        get_string('topk_desc', 'block_ragassistant'),
-        '5',
-        PARAM_INT
-    ));
-
     $settings->add(new admin_setting_heading(
         'block_ragassistant/displayheading',
         'Visualización',
