@@ -60,9 +60,13 @@ class rag_client {
         $errno    = $curl->get_errno();
 
         if ($debug) {
-            // El payload no contiene datos personales ni token. El token viaja
-            // en cabeceras y NUNCA se registra.
-            debugging('RAG /ask payload: ' . json_encode($payload), DEBUG_DEVELOPER);
+            // Privacy-first: se registra solo el "context" canónico (sin datos
+            // personales) y la LONGITUD de la pregunta, nunca la pregunta
+            // completa ni el token (que viaja en cabeceras).
+            $ctx  = is_array($payload['context'] ?? null) ? $payload['context'] : [];
+            $qlen = isset($payload['question']) ? strlen((string) $payload['question']) : 0;
+            debugging('RAG /ask context: ' . json_encode($ctx) . ' question_len: ' . $qlen,
+                DEBUG_DEVELOPER);
             debugging('RAG /ask http_code: ' . $httpcode . ' errno: ' . $errno, DEBUG_DEVELOPER);
         }
 
