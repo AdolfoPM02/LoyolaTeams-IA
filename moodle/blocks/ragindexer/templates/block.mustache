@@ -5,13 +5,8 @@
 }}
 <div class="block-ragindexer" data-region="ragindexer" data-courseid="{{courseid}}">
 
-    {{! Aviso: el backend de indexación puede no estar disponible todavía }}
-    <div class="ragindexer-notice alert alert-info small py-2" role="status">
-        {{#str}}backendpending, block_ragindexer{{/str}}
-    </div>
-
     {{! Acción docente de indexación }}
-    <div class="ragindexer-actions mt-2 d-flex align-items-center gap-2">
+    <div class="ragindexer-actions d-flex align-items-center gap-2">
         <button class="btn btn-outline-secondary btn-sm" data-action="index-course">
             {{#str}}indexbutton, block_ragindexer{{/str}}
         </button>
@@ -19,7 +14,29 @@
               role="status" aria-hidden="true"></span>
     </div>
 
-    {{! Estado de la indexación }}
-    <div class="ragindexer-status small mt-2" data-region="index-status"></div>
+    <div class="form-check mt-2">
+        <input class="form-check-input" type="checkbox" value="1"
+               id="ragindexer-force-{{courseid}}" data-action="force">
+        <label class="form-check-label small" for="ragindexer-force-{{courseid}}">
+            {{#str}}forcereindex, block_ragindexer{{/str}}
+        </label>
+    </div>
+
+    {{! Estado textual de la indexación }}
+    <div class="ragindexer-status small mt-2" data-region="index-status" aria-live="polite"></div>
+
+    {{! Aviso de indexación parcial (no bloqueante) }}
+    <div class="ragindexer-partial alert alert-warning small py-2 mt-2 d-none" data-region="partial" role="status">
+        {{#str}}indexpartialnotice, block_ragindexer{{/str}}
+    </div>
+
+    {{! Detalle de resultados }}
+    <ul class="ragindexer-result list-unstyled small mt-2 d-none" data-region="result"></ul>
+
+    {{! Resumen de errores }}
+    <div class="ragindexer-errors mt-2 d-none" data-region="errors-wrap">
+        <strong class="small text-danger">{{#str}}errorsheading, block_ragindexer{{/str}}</strong>
+        <ul class="list-unstyled small text-danger mt-1" data-region="errors"></ul>
+    </div>
 
 </div>
