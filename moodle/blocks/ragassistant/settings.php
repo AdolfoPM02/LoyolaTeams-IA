@@ -49,14 +49,6 @@ if ($ADMIN->fulltree) {
         1
     ));
 
-    // Mostrar confianza
-    $settings->add(new admin_setting_configcheckbox(
-        'block_ragassistant/showconfidence',
-        get_string('showconfidence', 'block_ragassistant'),
-        get_string('showconfidence_desc', 'block_ragassistant'),
-        0
-    ));
-
     // Modo debug
     $settings->add(new admin_setting_configcheckbox(
         'block_ragassistant/debugmode',

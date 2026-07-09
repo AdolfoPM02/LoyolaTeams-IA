@@ -15,8 +15,6 @@ $string['timeout']               = 'Tiempo de espera (segundos)';
 $string['timeout_desc']          = 'Segundos máximos de espera para la respuesta de FastAPI.';
 $string['showsources']           = 'Mostrar fuentes';
 $string['showsources_desc']      = 'Muestra las fuentes documentales junto a la respuesta.';
-$string['showconfidence']        = 'Mostrar confianza';
-$string['showconfidence_desc']   = 'Muestra el nivel de confianza de la respuesta.';
 $string['debugmode']             = 'Modo depuración';
 $string['debugmode_desc']        = 'Activa logs detallados de las llamadas a FastAPI.';
 

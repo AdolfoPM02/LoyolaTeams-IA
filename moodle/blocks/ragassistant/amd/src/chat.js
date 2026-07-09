@@ -9,7 +9,6 @@ define(['core/ajax', 'core/notification', 'core/str'], function(Ajax, Notificati
         const spinner     = root.querySelector('.ragassistant-spinner');
         const answerWrap  = root.querySelector('[data-region="answer-wrap"]');
         const answerEl    = root.querySelector('[data-region="answer"]');
-        const confEl      = root.querySelector('[data-region="confidence"]');
         const sourcesWrap = root.querySelector('[data-region="sources-wrap"]');
         const sourcesList = root.querySelector('[data-region="sources"]');
         const warnWrap    = root.querySelector('[data-region="warnings-wrap"]');
@@ -59,7 +58,6 @@ define(['core/ajax', 'core/notification', 'core/str'], function(Ajax, Notificati
             });
             if (sourcesList) { sourcesList.innerHTML = ''; }
             if (warnList)    { warnList.innerHTML = ''; }
-            if (confEl)      { confEl.textContent = ''; confEl.classList.add('d-none'); }
         }
 
         /**
@@ -92,25 +90,32 @@ define(['core/ajax', 'core/notification', 'core/str'], function(Ajax, Notificati
             answerWrap.classList.remove('d-none');
             answerEl.textContent = response.answer || '';
 
-            if (typeof response.best_score === 'number' && response.best_score > 0 && confEl) {
-                confEl.textContent = 'Confianza: ' + Math.round(response.best_score * 100) + '%';
-                confEl.classList.remove('d-none');
-            }
+            // El best_score del backend es interno (evaluación/depuración) y NO
+            // se muestra al usuario: podría malinterpretarse como probabilidad
+            // de veracidad.
 
             renderSources(response.sources);
             renderWarnings(response.warnings);
         }
 
+        /**
+         * Renderiza las fuentes numeradas [1], [2], [3]... en el mismo orden
+         * que devuelve /ask, para que coincidan con las citas inline de la
+         * respuesta. No se muestra el source_uri crudo ni rutas internas.
+         */
         function renderSources(sources) {
             if (!sources || !sources.length || !sourcesWrap) { return; }
             sourcesWrap.classList.remove('d-none');
             sourcesList.innerHTML = '';
-            sources.forEach(function(src) {
+            sources.forEach(function(src, i) {
                 var label = src.document_title || src.chunk_id || 'Fuente';
                 if (src.section) { label += ' — ' + src.section; }
                 if (src.page)    { label += ' (pág. ' + src.page + ')'; }
 
                 var li = document.createElement('li');
+                // Número de cita visible, fuera del enlace: [1] Título — sección.
+                li.appendChild(document.createTextNode('[' + (i + 1) + '] '));
+
                 if (src.source_uri && /^https?:\/\//i.test(src.source_uri)) {
                     var a = document.createElement('a');
                     a.href = src.source_uri;
@@ -119,7 +124,7 @@ define(['core/ajax', 'core/notification', 'core/str'], function(Ajax, Notificati
                     a.textContent = label;
                     li.appendChild(a);
                 } else {
-                    li.textContent = label;
+                    li.appendChild(document.createTextNode(label));
                 }
                 sourcesList.appendChild(li);
             });
