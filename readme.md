@@ -22,7 +22,7 @@ cd <PROJECT_ROOT>/moodle-docker
 2. Encender los motores:
 bin/moodle-docker-compose start  
 
-3. Acceso Web:
+3. Acceso Web (credenciales de ejemplo del entorno local de desarrollo; no válidas para producción):
 - URL: http://localhost:8000  
 - User: admin  
 - Pass: test  

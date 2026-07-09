@@ -8,3 +8,6 @@
 
 # Artefactos locales
 get-docker.sh
+
+# Archivos de distribución de bloques Moodle generados (no versionar)
+/moodle/blocks/*.zip
