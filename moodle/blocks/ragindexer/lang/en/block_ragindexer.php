@@ -9,7 +9,7 @@ $string['ragindexer:forcereindex']   = 'Force full reindex';
 // Admin settings.
 $string['settings']                  = 'RAG Indexer settings';
 $string['apiurl']                    = 'Indexing backend URL';
-$string['apiurl_desc']               = 'Base URL of the FastAPI indexing backend, e.g. http://host.docker.internal:8001';
+$string['apiurl_desc']               = 'Base URL of the FastAPI indexing backend, e.g. http://host.docker.internal:8003';
 $string['apikey']                    = 'Indexer token';
 $string['apikey_desc']               = 'Bearer token to authenticate requests to the indexing backend (stored hidden).';
 $string['timeout']                   = 'Timeout (seconds)';

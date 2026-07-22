@@ -14,7 +14,7 @@ if ($ADMIN->fulltree) {
         'block_ragindexer/apiurl',
         get_string('apiurl', 'block_ragindexer'),
         get_string('apiurl_desc', 'block_ragindexer'),
-        'http://host.docker.internal:8001',
+        'http://host.docker.internal:8003',
         PARAM_URL
     ));
 
